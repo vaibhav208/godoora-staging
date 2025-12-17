@@ -1,0 +1,214 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+/* Override styles */
+@import "./theme/avatar.scss";
+@import "./theme/store-detail.scss";
+@import "./theme/schedule.scss";
+@import "./theme/form.scss";
+@import "./theme/responsive.scss";
+@import "./theme/theme.scss";
+
+ion-header.header-collapse-condense ion-toolbar:last-of-type {
+  --border-width: 0 0 0.55px;
+}
+
+ion-button, button {
+  text-transform: capitalize !important;
+  --border-color: #1a8cd2;
+  --border-width: 1px !important;
+}
+
+.button-outline,
+.button-has-icon-only {
+  --color: #1a8cd2 !important;
+}
+
+.button-default {
+  --checkbox-background: #1a8cd2;
+}
+
+.action-sheet-wrapper {
+  max-width: 100% !important;
+}
+
+ion-content {
+  // height: calc(108vh - 174px);
+  // position: absolute;
+  // top: 60px;
+}
+
+.popover-content {
+  left: unset !important;
+  right: 0px !important;
+  transform-origin: left bottom !important;
+}
+
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.alert-wrapper.sc-ion-alert-md {
+  min-width: 50%;
+}
+
+@font-face {
+  font-family: museo-500;
+  src: url("assets/fonts/Museo500-Regular.otf");
+}
+
+@font-face {
+  font-family: CastleT;
+  src: url("assets/fonts/CastleT.ttf");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+}
+
+.action-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  .status-popover {
+    ion-icon {
+      position: absolute;
+      right: -6px;
+      font-size: 16px;
+      top: -6px;
+      border: 1px solid;
+      border-radius: 50%;
+    }
+    position: absolute;
+    min-width: 200px;
+    right: 20px;
+    top: 50%;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    --checkbox-background: white;
+    z-index: 1;
+    ul {
+      margin: 0px;
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 0px;
+        button {
+          display: block;
+          margin-bottom: 8px;
+          width: calc(100%);
+          padding: 16px 0px;
+          --checkbox-background: white;
+          &:hover {
+            --checkbox-background: rgb(74, 74, 74);
+            color: white;
+          }
+          &:last-child {
+            margin: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Slot-detail {
+  carousel {
+    height: 300px !important;
+  }
+  .carousel-200 {
+    height: 200px !important;
+  }
+}
+
+.carousel {
+  .slide {
+    max-height: 520px !important;
+  }
+}
+
+.yaana-pointer {
+  cursor: pointer;
+}
+
+ui-switch {
+  width: 40% !important;
+  .switch.switch-medium {
+    outline: none !important;
+    min-width: 140px !important;
+    border-color: none !important;
+    .switch-pane {
+      justify-content: center !important;
+      span {
+        font-size: 1rem;
+        color: black;
+        min-height: auto  !important;
+      }
+    }
+    small {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+
+.custom-grid {
+  display: grid;
+  width: 100%;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+
+
+/* 🔷 Hide owl-carousel prev/next navigation globally */
+.owl-nav {
+  display: none !important;
+}
+
+.owl-carousel .owl-nav {
+  display: none !important;
+}
+
+.owl-carousel-o .owl-nav {
+  display: none !important;
+}
+
+
+ion-modal::part(backdrop) {
+  background-color: rgba(0, 0, 0, 0.4) !important; /* dimmed black backdrop */
+}
+
+ion-modal::part(content) {
+  background: transparent !important; /* removes outer white box */
+  box-shadow: none !important;
+}

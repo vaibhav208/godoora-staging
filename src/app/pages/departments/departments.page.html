@@ -1,0 +1,12 @@
+<div class="grid">
+  <article *ngFor="let department of departments">
+    <ion-card (click)="navigateToServices(department)">
+      <div lines="none" class="my-3 image-container">
+        <img [src]="'../../../assets/images/' + appService.getDepartmentIcon(department)" [ngStyle]="{width: department.size, height: department.size, color:department.color }" />
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-wrap">{{ department.name }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </article>
+</div>

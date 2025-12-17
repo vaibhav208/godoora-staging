@@ -1,0 +1,32 @@
+.login-model-label {
+    color: #364469;
+    margin-bottom: 8pt;
+    display: block;
+    font-size: 11pt;
+}
+.otp-done {
+    font-size: 32pt;
+    color: green;
+    margin: 8pt;
+}
+
+.otp-success-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .login-form {
+        flex: 1;
+        position: relative;
+    }
+    .pi-confirmation-btn{
+        margin: 8px 8px 8px 0px;
+        height: 40px;
+        --box-shadow: none;
+        font-weight: 400;
+        color: white;
+        --background: #1a8cd2;
+        --background-activated: #1a8cd2;
+        --background-hover: #1a8cd2;
+        --background-focused: #1a8cd2;
+    }
+}

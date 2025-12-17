@@ -1,0 +1,120 @@
+<div class="d-flex align-items-center justify-content-center flex-column" >
+    <div class="w-100 my-2">
+      <label>Email address</label>
+      <input type="text" class="form-control" [(ngModel)]="webCheckin.emailId" required>
+      <span class="text-danger" *ngIf="submit && !webCheckin.emailId">Email Address is required</span>
+      <span class="text-danger" *ngIf="submit && webCheckin.emailId && invalidFlags.email ">Please Enter Valid Email Address</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Guest Name</label>
+      <input type="email" class="form-control" [(ngModel)]="webCheckin.guestName">
+      <span class="text-danger" *ngIf="submit && !webCheckin.guestName ">Guest Name is required</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Contact Number</label>
+      <input type="number" class="form-control" [(ngModel)]="webCheckin.contactNumber">
+      <span class="text-danger" *ngIf="submit && !webCheckin.contactNumber">Contact Number is required</span>
+      <span class="text-danger" *ngIf="submit && webCheckin.emailId && invalidFlags.phone">Please Enter Valid Email Address</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Address</label>
+      <textarea type="text" class="form-control" [(ngModel)]="webCheckin.address"></textarea>
+      <span class="text-danger" *ngIf="submit && !webCheckin.address">Address is required</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Number of Guests</label>
+      <input type="number" min="1" max="10" class="form-control" [(ngModel)]="webCheckin.numberOfGuests" required>
+      <span class="text-danger" *ngIf="submit && !webCheckin.numberOfGuests">Number Of Guests is required</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Emergency Contact Name & Number (someone who is not travelling with the guest)</label>
+      <textarea  class="form-control" [(ngModel)]="webCheckin.emergencyContact"></textarea>
+      <span class="text-danger" *ngIf="submit && !webCheckin.emergencyContact">Emergency Contact is required</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>ID Proof being carried by the guest/s checking in</label>
+      <div>
+        <input type="radio" id="aadhar" name="idProof" value="Aadhar Card" [(ngModel)]="webCheckin.idProof">
+        <label for="aadhar">Aadhar Card</label>
+      </div>
+      <div>
+        <input type="radio" id="pan" name="idProof" value="Pan Card" [(ngModel)]="webCheckin.idProof">
+        <label for="pan">Pan Card</label>
+      </div>
+      <div>
+        <input type="radio" id="dl" name="idProof" value="Driving License" [(ngModel)]="webCheckin.idProof">
+        <label for="dl">Driving License</label>
+      </div>
+      <!-- <div>
+        <input type="radio" id="other" name="idProof" value="other" [(ngModel)]="webCheckin.idProof">
+        <label for="other" >Other</label>
+        <input type="text" *ngIf="webCheckin.idProof === 'other:'" class="form-control" [(ngModel)]="webCheckin.idProof"></input>
+      </div> -->
+      <span class="text-danger" *ngIf="submit && !webCheckin.idProof">Please Select any one of the Id Proof</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Any health issues in the last 10-12 days? </label>
+      <div>
+        <input type="radio" id="fever" name="healthIssues" value="Fever" [(ngModel)]="webCheckin.healthIssues">
+        <label for="fever">Fever</label>
+      </div>
+      <div>
+        <input type="radio" id="cold" name="healthIssues" value="Cold & Cough" [(ngModel)]="webCheckin.healthIssues">
+        <label for="cold">Cold & Cough</label>
+      </div>
+      <div>
+        <input type="radio" id="throatPain" name="healthIssues" value="Throat Pain" [(ngModel)]="webCheckin.healthIssues">
+        <label for="throatPain">Throat Pain</label>
+      </div>
+      <div>
+        <input type="radio" id="breathingDifficulty" name="healthIssues" value="Breathing difficulty" [(ngModel)]="webCheckin.healthIssues">
+        <label for="breathingDifficulty" >Breathing difficulty</label>
+      </div>
+      <div>
+        <input type="radio" id="all" name="healthIssues" value="All of the Above" [(ngModel)]="webCheckin.healthIssues">
+        <label for="all" >All of the Above</label>
+      </div>
+      <div>
+        <input type="radio" id="none" name="healthIssues" value="None of the above" [(ngModel)]="webCheckin.healthIssues">
+        <label for="none">None of the above</label>
+      </div>
+      <span class="text-danger" *ngIf="submit && !webCheckin.healthIssues">Please Select any one option above</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Please specify any travel history in the last 15 days.</label>
+      <input type="text" class="form-control" [(ngModel)]="webCheckin.travelHistory">
+      <span class="text-danger" *ngIf="submit && !webCheckin.travelHistory">Travel History is required</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Have you been in contact with any Covid Positive Patients/Symptoms?</label>
+      <div>
+        <input type="radio" id="yes" name="covidContact" [value]="true" [(ngModel)]="webCheckin.covidContact">
+        <label for="yes">Yes</label>
+      </div>
+      <div>
+        <input type="radio" id="no" name="covidContact" [value]="false" [(ngModel)]="webCheckin.covidContact">
+        <label for="no">No</label>
+      </div>
+      <span class="text-danger" *ngIf="submit && !webCheckin.covidContact">Please Select any one option above</span>
+    </div>
+    <div class="w-100 my-2">
+      <label>Do you have the Aarogya Setu app on and activated on your mobile device?</label>
+      <div>
+        <input type="radio" id="aYes" name="aarogyaSetuapp" [value]="true" [(ngModel)]="webCheckin.aarogyaSetuapp">
+        <label for="aYes">Yes</label>
+      </div>
+      <div>
+        <input type="radio" id="aNo" name="aarogyaSetuapp" [value]="false" [(ngModel)]="webCheckin.aarogyaSetuapp">
+        <label for="aNo" >No</label>
+      </div>
+      <span class="text-danger" *ngIf="submit && !webCheckin.aarogyaSetuapp">Please Select any one option above</span>
+    </div>
+    <div class="w-100 signature-pad">
+      <div class="position-relative">
+        <span class="sign-placeholder" *ngIf="signPlaceholder" >Please Sign here...</span>
+        <!-- <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad> -->
+        <button (click)="clearSign()" >Clear</button>
+      </div>
+      <span class="text-danger" *ngIf="submit">Please Sign Above</span>
+    </div>
+</div>

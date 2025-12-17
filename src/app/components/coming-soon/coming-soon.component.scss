@@ -1,0 +1,94 @@
+.coming-soon-body {
+    // background-image: url('../../../assets/images/bg-4.jpg');
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    .noise {
+        width: 80%;
+        margin: auto auto;
+        .content {
+            text-align: center;
+            h1 {
+                font-size: 2.5rem;
+                text-transform: uppercase;
+                text-shadow: 0 1px rgb(255 255 255 / 10%);
+                display: inline-block;
+                text-align: center;
+                margin: 0px;
+                margin: 2rem auto;
+                padding: 2rem;
+                border-bottom: 4px solid #dee2e6!important;
+                border-top: 4px solid #dee2e6!important;
+            }
+            p {
+                text-align: center;
+                margin: 2rem auto;
+                font-size: 1.2rem;
+                font-weight: normal;
+            }
+            form {
+                display: flex;
+                justify-content: center;
+                margin: 4rem auto;
+                input[type=button] {
+                    height: 46px;
+                    border: none;
+                    cursor: pointer;
+                    min-width: 80px;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    background-color: rgba(0,0,0,.6);
+                    -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+                    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
+                    box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #fff;
+                    text-shadow: 0 1px rgb(0 0 0 / 50%);
+                }
+                input[type=text] {
+                    height: 46px;
+                    border: none;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    background-color: rgba(0,0,0,.15);
+                    -webkit-box-shadow: 0 1px rgb(255 255 255 / 25%), inset 0 1px 3px rgb(0 0 0 / 50%);
+                    -moz-box-shadow: 0 1px rgba(255,255,255,.25), inset 0 1px 3px rgba(0,0,0,.5);
+                    box-shadow: 0 1px rgb(255 255 255 / 25%), inset 0 1px 3px rgb(0 0 0 / 50%);
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #fff;
+                    color: rgba(255,255,255,0.8);
+                    text-shadow: 0 1px rgb(0 0 0 / 50%);
+                    padding-left: 20px;
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) and (min-width: 0px) {
+    .coming-soon-body {
+        .noise {
+            width: 90%;
+            .content {
+                h1 {
+                    font-size: 1.5rem;
+                    margin: 1rem auto;
+                }
+                form {
+                    margin: 2rem auto;
+                    input[type=text] {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

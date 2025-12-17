@@ -1,0 +1,365 @@
+<ion-content *ngIf="vendorDeatil">
+
+  <section class="full-screen" *ngIf="vendorDeatil.landingPage?.heroIntro?.active">
+    <div class="hero-intro">
+      <h1 class="hero-intro-title">
+        <span class="pre-title">{{ vendorDeatil.landingPage?.heroIntro?.preTitle }}</span>
+        {{ vendorDeatil.landingPage?.heroIntro?.title }}
+      </h1>
+      <a class="btn" *ngIf="vendorDeatil.landingPage?.heroIntro?.routerLink"
+        [routerLink]="vendorDeatil.landingPage?.heroIntro?.routerLink"><b>{{ vendorDeatil.landingPage?.heroIntro?.linkLabel}}</b></a>
+      <a class="btn" *ngIf="vendorDeatil.landingPage?.heroIntro?.extLink" 
+        [href]="vendorDeatil.landingPage?.heroIntro?.extLink"><b>{{ vendorDeatil.landingPage?.heroIntro?.linkLabel }}</b></a>
+    </div>
+    <video playsinline loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true" loop="loop" id="myVideo">
+      <source [src]="vendorDeatil.landingPage?.heroIntro?.videoLink" type="video/mp4">
+    </video>
+    <div class="scroll-arrow-container">
+      <p>GoYaana For Business </p>
+      <p>
+        <span (click)="scrollToMasonry()"></span>
+      </p>
+    </div>
+  </section>
+
+  <section *ngIf="vendorDeatil.landingPage?.slider?.active">
+    <div class="m-0 image-container">
+      <carousel class="main-banner">
+        <slide class="item carousel-item" *ngFor="let slide of vendorDeatil.landingPage?.slider.items">
+          <div class="slide position-relative">
+            <img [src]="slide.img">
+            <div class="slide-info">
+              <div class="caption">
+                <h1>{{ slide.heading }}</h1>
+                <h3>{{ slide.subHeading }}</h3>
+                <div class="slide-btn-container mt-4" [ngClass]="{'small-screen': smallScreen}" *ngIf="slide?.btn">
+                  <button *ngIf="slide.btn?.routerLink" (click)="navgigate(slide)">{{ slide?.btn?.label }}</button>
+                  <button *ngIf="slide.btn?.extLink" (click)="navgigate(slide)" >{{ slide?.btn?.label }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </section>
+
+  <aside class="container">
+    <section class="goyanna_exp" *ngIf="vendorDeatil?.landingPage?.experience?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-end">
+              <h1 class="heading">{{ vendorDeatil.landingPage?.experience?.heading }}</h1>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.experience?.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0 exp_block"
+          *ngIf="vendorDeatil.landingPage?.experience.items && vendorDeatil.landingPage?.experience?.items.length">
+          <div class="col-6" *ngFor="let slide of vendorDeatil.landingPage?.experience?.items; let i = index">
+            <div class="exp_inner" [ngClass]="(i === 0 || i === 2) ? 'ml-0' : 'mr-0' ">
+              <figure>
+                <img class="progressive__img progressive--not-loaded fr-fic fr-dii lazyload"
+                  [src]="slide.img | safe: 'url'" alt="signature experience" title="signature experience"
+                  sizes="(max-width: 1350px) 100vw, 1350px">
+              </figure>
+              <figcaption>
+                <h3>{{ slide.label }}</h3>
+              </figcaption>
+              <ng-template [ngIf]="slide.routerLink" [ngIfElse]="extLink">
+                <a class="Financials" *ngIf="slide.routerLink" [routerLink]="[slide.routerLink]"></a>
+              </ng-template>
+              <ng-template #extLink>
+                <a class="Financials" *ngIf="slide.extLink" target="_blank" [href]="slide.extLink"></a>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="most_loved_destination mb-2" *ngIf="selectedBranch === 'default' && totalBranches && totalBranches.length > 1 && vendorDeatil?.displayProperty">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">Explore By Location</h2>
+            </div>
+            <p class="margn-t-b"></p>
+          </div>
+        </div>
+        <div class="row m-0" style="overflow: scroll;flex-wrap: nowrap;">
+          <ng-container *ngFor="let item of totalBranches">
+            <div class="wrap_destination branches px-1 display-5box" *ngIf="item.branch != 'default'"
+              (click)="navigateToBranchPage(item)">
+              <div class="wrap_destination_inner branch-inner">
+                <figure><img class="progressive__img lazyload progressive--is-loaded"
+                    [src]="item.branchImg | safe: 'url'"></figure>
+                <figcaption>
+                  <h3>{{ item.branch }}</h3>
+                </figcaption>
+                <a class="Financials"></a>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </section>
+  
+    <section class="most_loved_destination" *ngIf="vendorDeatil.landingPage?.destinations?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">{{ vendorDeatil.landingPage?.destinations.heading }}</h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.destinations.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0" style="overflow: scroll;flex-wrap: nowrap;"
+          *ngIf="vendorDeatil.landingPage?.destinations.items && vendorDeatil.landingPage?.destinations.items.length">
+          <div class="wrap_destination px-1 display-3box"
+            [ngClass]="{'display-3box-n-half': (vendorDeatil.landingPage?.destinations?.items?.length > 3), 'small-wrap_destination': smallScreen}"
+            *ngFor="let slide of vendorDeatil.landingPage?.destinations.items">
+            <div class="wrap_destination_inner">
+              <figure><img class="progressive__img lazyload progressive--is-loaded" [src]="slide.img | safe: 'url'"
+                  alt="Svenska Acacia Palms Resort in Goa" title="Svenska Acacia Palms Resort in Goa"
+                  sizes="(max-width: 1350px) 100vw, 1350px">
+              </figure>
+              <figcaption>
+                <h3>{{ slide.name }}</h3>
+                <p>{{ slide.location }}</p>
+                <span>{{ slide.views }}</span>
+              </figcaption>
+              <ng-template [ngIf]="slide.routerLink" [ngIfElse]="extLink">
+                <a class="Financials" *ngIf="slide.routerLink" [routerLink]="[slide.routerLink]"></a>
+              </ng-template>
+              <ng-template #extLink>
+                <a class="Financials" *ngIf="slide.extLink" target="_blank" [href]="slide.extLink"></a>
+              </ng-template>
+              <ng-container *ngIf="slide.btn">
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.extLink" [href]="slide.btn.extLink" >{{ slide.btn.label }}</a>
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.routerLink" [routerLink]="[slide.btn.routerLink]" >{{ slide.btn.label }}</a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="most_loved_destination" *ngIf="vendorDeatil.landingPage?.experiences?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">
+                <h2>{{ vendorDeatil.landingPage?.experiences?.heading }}&nbsp;</h2>
+              </h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.experiences?.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0" style="overflow: scroll;flex-wrap: nowrap;"
+          *ngIf="vendorDeatil.landingPage?.experiences?.items && vendorDeatil.landingPage?.experiences?.items.length">
+          <div class="wrap_destination px-1 display-3box"
+            [ngClass]="{'display-3box-n-half': (vendorDeatil.landingPage?.experiences?.items?.length > 3), 'small-wrap_destination': smallScreen}"
+            *ngFor="let slide of vendorDeatil.landingPage?.experiences?.items">
+            <div class="wrap_destination_inner">
+              <figure>
+                <img class="progressive__img lazyload progressive--is-loaded" [src]="slide.img | safe: 'url'"
+                  alt="Azzaro Resorts and Spa in Diu" title="Azzaro Resorts and Spa in Diu"
+                  sizes="(max-width: 1350px) 100vw, 1350px">
+              </figure>
+              <figcaption>
+                <h3>{{ slide.name }}</h3>
+                <p>{{ slide.location }}</p>
+                <span>{{ slide.views }}</span>
+              </figcaption>
+              <ng-template [ngIf]="slide.routerLink" [ngIfElse]="extLink">
+                <a class="Financials" *ngIf="slide.routerLink" [routerLink]="[slide.routerLink]"></a>
+              </ng-template>
+              <ng-template #extLink>
+                <a class="Financials" *ngIf="slide.extLink" target="_blank" [href]="slide.extLink"></a>
+              </ng-template>
+              <ng-container *ngIf="slide.btn">
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.extLink" [href]="slide.btn.extLink" >{{ slide.btn.label }}</a>
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.routerLink" [routerLink]="[slide.btn.routerLink]" >{{ slide.btn.label }}</a>
+              </ng-container>
+              <!-- <a href="" (click)="showDialogMethod()" ></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="most_loved_destination" *ngIf="vendorDeatil.landingPage?.activities?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">
+                <h2>{{ vendorDeatil.landingPage?.activities?.heading }}</h2>
+              </h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.activities?.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0 p-0" style="overflow: scroll;flex-wrap: nowrap;"
+          *ngIf="vendorDeatil.landingPage?.activities?.items && vendorDeatil.landingPage?.activities?.items.length">
+          <div class="wrap_destination px-1 display-3box"
+            [ngClass]="{'display-3box-n-half': (vendorDeatil.landingPage?.activities?.items?.length > 3), 'small-wrap_destination': smallScreen}"
+            *ngFor="let slide of vendorDeatil.landingPage?.activities?.items">
+            <div class="wrap_destination_inner">
+              <figure><img class="progressive__img lazyload progressive--is-loaded" [src]="slide.img | safe: 'url'"
+                  alt="Vijayshree Resort and Heritage Village in Hampi, Karnataka"
+                  sizes="(max-width: 1350px) 100vw, 1350px">
+              </figure>
+              <figcaption>
+                <h3>{{ slide.name }}</h3>
+                <p>{{ slide.desc }}</p>
+              </figcaption>
+              <ng-template [ngIf]="slide.routerLink" [ngIfElse]="extLink">
+                <a class="Financials" *ngIf="slide.routerLink" [routerLink]="[slide.routerLink]"></a>
+              </ng-template>
+              <ng-template #extLink>
+                <a class="Financials" *ngIf="slide.extLink" target="_blank" [href]="slide.extLink"></a>
+              </ng-template>
+              <ng-container *ngIf="slide.btn">
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.extLink" [href]="slide.btn.extLink" >{{ slide.btn.label }}</a>
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.routerLink" [routerLink]="[slide.btn.routerLink]" >{{ slide.btn.label }}</a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="most_loved_destination" *ngIf="vendorDeatil.landingPage?.offers?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">
+                <h2>{{ vendorDeatil.landingPage?.offers?.heading }}</h2>
+              </h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.offers?.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0" style="overflow: scroll;flex-wrap: nowrap;"
+          *ngIf="vendorDeatil.landingPage?.offers?.items && vendorDeatil.landingPage?.offers?.items.length">
+          <div class="wrap_destination px-1 display-3box"
+            [ngClass]="{'display-3box-n-half': (vendorDeatil.landingPage?.offers?.items?.length > 3), 'small-wrap_destination': smallScreen}"
+            *ngFor="let slide of vendorDeatil.landingPage?.offers?.items">
+            <div class="wrap_destination_inner">
+              <figure><img class="progressive__img lazyload progressive--is-loaded" [src]="slide.img | safe: 'url'"
+                  alt="Vijayshree Resort and Heritage Village in Hampi, Karnataka"
+                  sizes="(max-width: 1350px) 100vw, 1350px">
+              </figure>
+              <figcaption>
+                <h3>{{ slide.name }}</h3>
+                <p>{{ slide.desc }}</p>
+              </figcaption>
+              <ng-template [ngIf]="slide.routerLink" [ngIfElse]="extLink">
+                <a class="Financials" *ngIf="slide.routerLink" [routerLink]="[slide.routerLink]"></a>
+              </ng-template>
+              <ng-template #extLink>
+                <a class="Financials" *ngIf="slide.extLink" target="_blank" [href]="slide.extLink"></a>
+              </ng-template>
+              <ng-container *ngIf="slide.btn">
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.extLink" [href]="slide.btn.extLink" >{{ slide.btn.label }}</a>
+                <a class="action-btn" [ngClass]="{'small-action-btn': smallScreen}" *ngIf="slide.btn.routerLink" [routerLink]="[slide.btn.routerLink]" >{{ slide.btn.label }}</a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="masonry" class="mt-2" [ngClass]="{'small-screen' : smallScreen}"
+      *ngIf="vendorDeatil.landingPage?.masonry?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap d-flex justify-content-between align-items-center">
+              <h2 class="heading">{{ vendorDeatil.landingPage?.masonry?.title }}</h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.masonry?.desc }}</p>
+          </div>
+        </div>
+        <app-grid-gallery [images]="vendorDeatil.landingPage?.masonry?.items"
+          [cols]="smallScreen ? 2 : vendorDeatil.landingPage?.masonry.cols"
+          [rowHeight]="vendorDeatil.landingPage?.masonry.rowHeight"></app-grid-gallery>
+      </div>
+    </section>
+  
+    <section *ngIf="vendorDeatil.landingPage?.stories?.active">
+      <div class="container">
+        <div class="row m-0">
+          <div class="col-12 p-0">
+            <div class="headng_btn_wrap flex space-between">
+              <h2 class="heading">{{ vendorDeatil.landingPage?.stories.heading }}</h2>
+            </div>
+            <p class="margn-t-b">{{ vendorDeatil.landingPage?.stories.desc }}</p>
+          </div>
+        </div>
+        <div class="row m-0"
+          *ngIf="vendorDeatil.landingPage?.stories.items && vendorDeatil.landingPage?.stories?.items?.length">
+          <div class="col-12 p-0 lightboxstories">
+            <div class="image_tn" (click)="showDialogMethod(slide)"
+              *ngFor="let slide of vendorDeatil.landingPage?.stories.items">
+              <a>
+                <img class="progressive__img lazyload progressive--is-loaded" [src]="slide.img | safe: 'url'"
+                  sizes="(max-width: 285px) 100vw, 285px">
+              </a>
+              <img class="play-btn" src="../../../assets/images/play-button.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="html5-lightbox" *ngIf="showDialog && selectedVideoUrl"
+      style="top: 0px; left: 0px; width: 100%; height: 100%; z-index: 9999998; text-align: center; position: fixed;">
+      <div id="html5-lightbox-overlay"
+        style="display: block; position: absolute; top: 0px; left: 0px; width: 100%; min-height: 100%; background-color: rgb(0, 0, 0); opacity: 0.8; height: 6572px;">
+      </div>
+      <div id="html5-lightbox-box"
+        style="display: block; position: relative; margin: 73px auto 0px; width: 90%; height: 50%;">
+        <div id="html5-elem-box"
+          style="display: block; position: relative; margin: 0px auto; text-align: center; overflow: hidden; box-sizing: content-box; background-color: rgb(255, 255, 255);">
+          <div id="html5-elem-wrap"
+            style="display: block; position: relative; margin: 0px auto; text-align: center; box-sizing: content-box; background-color: rgb(255, 255, 255); width: 100%; height: 68vh;">
+            <div id="html5-loading"
+              style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; height: 100%; background: url(&quot;https://www.clubmahindra.com/themes/prospect/assets/js/skins/default/lightbox-loading.gif&quot;) center center no-repeat;">
+            </div>
+            <div id="html5-error" class="html5-error"
+              style="display:none;position:absolute;padding:8px;text-align:center;width:280px;height:48px;">The requested
+              content cannot be loaded.<br>Please try again later.</div>
+            <div id="html5-image"
+              style="position: absolute; top: 0px; left: 0px; padding: 8px; text-align: center; box-sizing: content-box; width: calc(100% - 16px); height: calc(100% - 16px);">
+              <div id="html5lightbox-video" style="display:block;width:100%;height:100%;">
+                <iframe frameborder="0" width="100%" height="100%" [src]="selectedVideoUrl"></iframe>
+              </div>
+            </div>
+            <div id="html5-next"
+              style="cursor: pointer; position: absolute; right: 8px; top: 50%; margin-top: -16px; display: none;"><img
+                src="https://www.clubmahindra.com/themes/prospect/assets/js/skins/default/lightbox-next.png"></div>
+            <div id="html5-prev"
+              style="cursor: pointer; position: absolute; left: 8px; top: 50%; margin-top: -16px; display: none;"><img
+                src="https://www.clubmahindra.com/themes/prospect/assets/js/skins/default/lightbox-prev.png"></div>
+          </div>
+          <div id="html5-elem-data-box"
+            style="display: none; position: relative; width: 100%; height: auto; padding: 0px 0px 8px; background-color: rgb(255, 255, 255); text-align: left;">
+            <div id="html5-text" style="display: block; overflow: hidden; margin: 0px 8px;"></div>
+          </div>
+        </div>
+        <div id="html5-watermark" style="position: absolute; left: 10px; top: 10px;"></div>
+        <div id="html5-close" (click)="showDialog = false"
+          style="cursor: pointer; position: absolute; top: 0px; right: 0px; margin-top: -16px; margin-right: -16px;"><img
+            src="https://www.clubmahindra.com/themes/prospect/assets/js/skins/default/lightbox-close.png"></div>
+      </div>
+    </section>
+  </aside>
+</ion-content>

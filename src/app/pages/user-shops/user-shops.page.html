@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="container">
+    <ion-item>
+      <ion-button class="pay-now-btn-fill" (click)="addShop()">
+        <span>Add New {{ vendorDeatil ? vendorDeatil.serviceLabel : 'Service'}}</span>
+      </ion-button>
+      <ion-button *ngIf="user?.name === 'Front Desk'" tappable class="pay-now-btn ml-2" fill="outline" (click)="addGuest()">
+        <span>Add Guest</span>
+      </ion-button>
+      <!-- <ion-button tappable class="pay-now-btn ml-2" fill="outline" (click)="viewGuests()">
+        <span>View Guests</span>
+      </ion-button> -->
+    </ion-item>
+    <ion-list class="booked-customer-list" style="display: block;">
+      <ion-item *ngFor="let item of userShops" class="booked-customer-item">
+        <ion-grid>
+          <ion-row>
+            <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="3">
+              <ion-label class="ion-text-wrap">{{ item.name}}</ion-label>
+            </ion-col>
+            <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="3">
+<ion-label class="ion-text-wrap" [innerHTML]="item.description"></ion-label>
+
+            </ion-col>
+            <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="3">
+              <ion-label class="ion-text-wrap">{{ vendorDeatil.conceirge ? '' : (item.phonenumber | parseNumber) }}</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-button tappable class="pay-now-btn" fill="outline" [routerLink]="['/booked-customers', item.phonenumber]" >
+                <span>View Request</span>
+              </ion-button>
+              <ion-button tappable class="pay-now-btn" fill="outline" [routerLink]="['/shop-keeper', item.phonenumber]">
+                <span>Edit</span>
+              </ion-button>
+              <ion-button tappable class="pay-now-btn" fill="outline" (click)="deleteShop(item)">
+                <span>Delete</span>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

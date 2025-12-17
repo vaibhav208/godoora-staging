@@ -1,0 +1,112 @@
+<ion-content>
+  <div class="container">
+    <form name="form1" class="shop-form" #shopForm="ngForm">
+      <ng-container *ngIf="user">
+        <ion-grid style="margin: 8pt 16pt;">
+          <ion-row>
+            <ion-label style="font-size: 12pt;" >Fill below details to complete your setup</ion-label>
+            <!-- <ion-label style="font-size: 12pt;">( ನಿಮ್ಮ ಅಂಗಡಿ ಸೆಟಪ್ ಪೂರ್ಣಗೊಳಿಸಲು ಕೆಳಗಿನ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ )</ion-label> -->
+          </ion-row>
+        </ion-grid>
+          <ion-grid class="shop-keeper-grid">
+            <ion-row class="shop-keeper-row">
+              <ion-col class="shop-keeper-col shop-keeper-detail">
+                <ion-item>
+                  <ion-label position="stacked">{{ vendorDeatil ? vendorDeatil.serviceLabel : 'Shop'}} Name <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-select *ngIf="vendorDeatil.conceirge && department" name="firstname" [(ngModel)]="selectedUser.name" interface="action-sheet">
+                    <ion-select-option *ngFor="let department of department.services" >{{ department.name }}</ion-select-option>
+                  </ion-select>
+                  <ion-input *ngIf="!vendorDeatil.conceirge" type="text" [(ngModel)]="selectedUser.name" name="shopName" required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked">Description<ion-text color="danger">*</ion-text></ion-label>
+                  <ion-textarea [(ngModel)]="selectedUser.description" name="desc" required></ion-textarea>
+                </ion-item>
+                <ion-item>
+                  <ion-label style="opacity: 1;" position="stacked">Mobile Number <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-text>{{ selectedUser.phonenumber | parseNumber }}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked">{{ vendorDeatil.addressLabel ? vendorDeatil.addressLabel : 'Address'}}</ion-label>
+                  <ion-textarea [(ngModel)]="selectedUser.formattedAddress" name="address"></ion-textarea>
+                  <!-- <ng-container *ngIf="!this.selectedAddress">
+                    <ion-searchbar class="shop-address-search" type="text" debounce="1000" enterkeyhint="enter" (ionChange)="searchAddress($event)"></ion-searchbar>
+                    <ion-list *ngIf="addressList">
+                      <ion-item tappable (click)="selectAddress(item)" *ngFor="let item of addressList">
+                        <ion-label>{{ item.name }}</ion-label>
+                        <ion-label>{{ item.formattedAddress }}</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ng-container> -->
+                </ion-item>
+  
+                <!-- <ion-item>
+                  <ion-label position="stacked">Category<ion-text color="danger">*</ion-text></ion-label>
+                  <ion-select [value]="selectedCategory ? selectedCategory.name : 'Select Category'" (ionChange)="onCategoryChange($event)" interface="action-sheet">
+                    <ion-select-option *ngFor="let category of categories" >{{ category.name }}</ion-select-option>
+                  </ion-select>
+                </ion-item> -->
+                <ion-item *ngIf="vendorDeatil.updateShopLocation">
+                  <ion-label position="stacked">Location<ion-text color="danger">*</ion-text></ion-label>
+                  <ion-select [selectedText]="selectedLocation?.formattedAddress" (ionChange)="onLocationChange($event)" interface="action-sheet">
+                    <ion-select-option [value]="location" *ngFor="let location of locations" >{{ location.formattedAddress }}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+              <ion-col class="v-divider ion-no-padding" size="auto"></ion-col>
+              <ion-col class="shop-keeper-col shop-keeper-slot-detail">
+                <ion-item *ngFor="let item of selectedUser.availableDays; let i = index">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <ion-item lines="none">
+                          <p style="width: 25%;">{{ item.day ? (item.day | trimunit: 3) : '-' }}</p>
+                          <ion-toggle [(ngModel)]="item.checked" [name]="i + 'checked'" ></ion-toggle>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <ng-container *ngIf="item.checked">
+                      <ion-row>
+                        <ion-col>
+                          <ion-item lines="none">
+                            <ion-label>Open Time</ion-label>
+                            <ion-datetime display-format="hh:mm A" placeholder="hh:mm a" picker-format="hh:mm a" [(ngModel)]="item.startTime" [name]="'opnTime' + i" required></ion-datetime>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                          <ion-item lines="none">
+                            <ion-label>Close Time</ion-label>
+                            <ion-datetime display-format="hh:mm A" placeholder="hh:mm a" picker-format="hh:mm a" [(ngModel)]="item.endTime" [name]="'closeTime' + i" required></ion-datetime>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <ion-item>
+                            <ion-label position="stacked">Slot Duration<ion-text color="danger">*</ion-text></ion-label>
+                            <ion-input type="text" [(ngModel)]="item.durationInMin" [value]="item.durationInMin" [name]="'slotDuration' + i" required></ion-input>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                          <ion-item>
+                            <ion-label position="stacked">Customers Per Slot<ion-text color="danger">*</ion-text></ion-label>
+                            <ion-input type="text" [(ngModel)]="item.slotLimit" [value]="item.slotLimit" required [name]="'CustomersSlot' + i" ></ion-input>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                    </ng-container>
+                  </ion-grid>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ng-container>
+      </form>
+      <div class="shop-keeper-btn-container">
+        <ion-button name="submit" size="default" expand="primary" class="book-appointment-btn" tappable
+          (click)="save()">
+          <span class="mr-1">Save</span>
+        </ion-button>
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-footer class="ion-md-down theme-footer" *ngIf="vendorDeatil">
+  <ion-toolbar>
+    <div class="footer-container">
+      <div class="ion-text-wrap">
+        <ion-label class="ion-text-wrap">Please write at <a
+            [href]="'mailto:' + vendorDeatil.footer.feedBackEmail" target="_top">{{ vendorDeatil.footer.feedBackEmail }}</a>
+        </ion-label>
+      </div>
+      <div class="terms-section ion-text-wrap">
+        <a class="ion-text-wrap yaana-pointer ml-2 mr-2" target="_blank" *ngIf="vendorDeatil.footer.terms.isAnchor" [href]="vendorDeatil.footer.terms.extLink" >Terms & Conditions</a>
+        <ion-label *ngIf="!vendorDeatil.footer.terms.isAnchor && vendorDeatil.footer.terms.routerLink" class="ion-text-wrap yaana-pointer ml-2 mr-2" [routerLink]="['/', vendorDeatil.footer.terms.routerLink]">Terms & Conditions</ion-label>
+        <span class="separator" *ngIf="vendorDeatil.footer.terms.isAnchor || vendorDeatil.footer.terms.routerLink"> |</span>
+        <a class="ion-text-wrap yaana-pointer ml-2 mr-2" target="_blank" *ngIf="vendorDeatil.footer.privacy.isAnchor" [href]="vendorDeatil.footer.privacy.extLink" >Privacy Policy</a>
+        <ion-label *ngIf="!vendorDeatil.footer.terms.isAnchor && vendorDeatil.footer.privacy.routerLink" class="ion-text-wrap yaana-pointer ml-2 mr-2" [routerLink]="['/', vendorDeatil.footer.privacy.routerLink]">Privacy Policy</ion-label>
+        <span class="separator" *ngIf="vendorDeatil.footer.privacy.extLink || vendorDeatil.footer.privacy.routerLink" > |</span>
+        <a class="ion-text-wrap yaana-pointer ml-2 mr-2" target="_blank" *ngIf="vendorDeatil.footer.about.isAnchor" target="_blank" [href]="vendorDeatil.footer.about.extLink">About</a>
+        <ion-label *ngIf="!vendorDeatil.footer.about.isAnchor && vendorDeatil.footer.about.routerLink" class="ion-text-wrap yaana-pointer ml-2 mr-2" [routerLink]="['/', vendorDeatil.footer.about.routerLink]">About</ion-label>
+        <ng-container *ngIf="deferredPrompt">
+          <span class="separator"> |</span>
+          <ion-label class="ion-text-wrap yaana-pointer ml-2" (click)="addToHome()">Install App</ion-label>
+        </ng-container>
+        <div>
+          <a class="ion-text-wrap yaana-pointer ml-2 mr-2" target="_blank" *ngIf="'https://www.google.com/policies/privacy'" >Google's Privacy Policy</a>
+          <a class="ion-text-wrap yaana-pointer ml-2 mr-2" target="_blank" *ngIf="'https://www.google.com/intl/en/policies/terms'" >Google's Terms of Service</a>
+          <!-- <img src="'../../../assets/images/powered_by_google.png" > -->
+          <div>
+            <a href="http://blogs.goyaana.com/terms-and-conditions">Powered by GoYaana</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

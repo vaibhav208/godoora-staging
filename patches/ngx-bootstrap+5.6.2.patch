@@ -1,0 +1,10 @@
+diff --git a/node_modules/ngx-bootstrap/carousel/carousel.module.d.ts b/node_modules/ngx-bootstrap/carousel/carousel.module.d.ts
+index 5f5485b..d43447a 100644
+--- a/node_modules/ngx-bootstrap/carousel/carousel.module.d.ts
++++ b/node_modules/ngx-bootstrap/carousel/carousel.module.d.ts
+@@ -1,4 +1,4 @@
+ import { ModuleWithProviders } from '@angular/core';
+ export declare class CarouselModule {
+-    static forRoot(): ModuleWithProviders;
++    static forRoot(): ModuleWithProviders<CarouselModule>;
+ }

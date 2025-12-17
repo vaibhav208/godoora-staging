@@ -1,0 +1,138 @@
+<ion-content>
+  <div class="container">
+    <ng-container *ngIf="!vendorDeatil.conceirge">
+      <div class="header-part" *ngIf="vendorDeatil.mainLocation">
+        <ion-grid class="p-0">
+          <ion-row class="home-header-container">
+            <ion-col size-md="7" size-sm="12" size-xs="12" class="home-header-column mb-0">
+              <div class="search-bar-container">
+                <ion-item class="select-location" lines="none">
+                  <ion-icon name="search"></ion-icon>
+                  <ion-select [selectedText]="selectedLocation?.formattedAddress"  (ionChange)="onLocationChange($event)" interface="action-sheet">
+                    <ion-select-option [value]="location" *ngFor="let location of locations" >{{ location.formattedAddress }}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  
+      <div class="header-part" *ngIf="vendorDeatil.searchBar" >
+        <ion-grid class="p-0">
+          <ion-row class="home-header-container">
+            <ion-col size-md="7" size-sm="12" size-xs="12" class="home-header-column">
+              <!-- <p class="title-text">&nbsp;</p> -->
+              <div class="search-bar-container">
+                <ion-searchbar class="search-bar" placeholder="Search by store name" animated="true"
+                  clear-icon="close-circle" showCancelButton="focus" debounce="500" #storessearch
+                  [(ngModel)]="storeSearchValue" (ionChange)="getStoreBasedOnSearch()"
+                  (ionCancel)="onStoreSearchCancel()">
+                </ion-searchbar>
+              </div>
+            </ion-col>
+            <!-- <ion-col size-md="5" size-sm="12" size-xs="12" class="p-0 ion-hide-md-down home-app-logo-container">
+              <img src="../../../assets/images/store.jpg" class="app-logo" />
+            </ion-col> -->
+          </ion-row>
+        </ion-grid>
+      </div>
+  
+      <div class="body-part">
+        <ng-container>
+          <ion-grid class="stores my-1">
+            <ion-row class="stores-row">
+              <ion-col size-md="3" size-sm="6" size-xs="12" *ngFor="let store of storesList">
+                <ion-card class="stores-card">
+                  <div class="d-flex stores-card-header">
+                    <div class="stores-item">
+                      <ng-container *ngIf="!store?.photo">
+                        <ion-avatar slot="start" class="stores-item-icon"
+                          [ngClass]="'first-letter-' + (store?.name? ((store.name | trimunit:1) | uppercase ) : '')">
+                          {{store.name? ((store?.name | trimunit:1) | titlecase ) : '' }}
+                        </ion-avatar>
+                      </ng-container>
+                      <ng-container *ngIf="store?.photo">
+                        <ion-avatar slot="start" class="stores-item-icon">
+                          <img [src]="store?.photo" [attr.alt]="store?.name" />
+                        </ion-avatar>
+                      </ng-container>
+                    </div>
+  
+                    <div class="stores-item w-100" style="margin-left: 8pt; width: 100%;">
+                      <div class="store-details-column stores-card-content">
+                        <ion-label class="stores-item-label ion-text-wrap">
+                          <h3 class="stores-item-title" *ngIf="store?.name">
+                            {{ store?.name}}
+                          </h3>
+                          <p class="stores-item-sub-title" *ngIf="store?.formattedAddress">
+                            {{store?.formattedAddress}}
+                          </p>
+                        </ion-label>
+                        <ion-label class="stores-card-content-speciality ion-text-wrap">
+                          <span class="speciality-value">{{store?.address}}</span>
+                        </ion-label>
+                        <ion-label class="stores-card-content-license-number ion-text-wrap" *ngIf="store?.contact">
+                          <span class="license-number-label">Contact Number.:</span>
+                          <span class="license-number-value">{{ store?.contact}}</span>
+                        </ion-label>
+                        <ion-label class="stores-card-content-license-number ion-text-wrap" *ngIf="store?.storeId">
+                          <span class="license-number-label">License No.:</span>
+                          <span class="license-number-value">{{ store?.storeId}}</span>
+                        </ion-label>
+                      </div>
+                      <div class="store-btn-container">
+                        <ion-button size="default" expand="outline" class="book-appointment-btn" tappable
+                          (click)="onStoreDetailClick(store)">
+                          <span class="mr-1">Book Slot</span>
+                        </ion-button>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ng-container>
+  
+        <ng-container *ngIf="storesList.length === 0">
+          <ion-grid class="home-search-stores mb-3">
+            <ion-row class="home-search-stores-row">
+              <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                <ion-label class="ion-text-wrap error-message">
+                  No search result found!!</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="vendorDeatil.conceirge">
+      <!-- <div class="my-3 image-container d-flex" style="justify-content: center;">
+        <carousel>
+          <slide>
+            <div class="slide">
+              <ion-img src="../../../assets/images/slide1.png"></ion-img>
+            </div>
+          </slide>
+          <slide>
+            <div class="slide">
+              <ion-img src="../../../assets/images/slide2.png"></ion-img>
+            </div>
+          </slide>
+          <slide>
+            <div class="slide">
+              <ion-img src="../../../assets/images/slide3.png"></ion-img>
+            </div>
+          </slide>
+          <slide>
+            <div class="slide">
+              <ion-img src="../../../assets/images/slide4.png"></ion-img>
+            </div>
+          </slide>
+        </carousel>
+      </div> -->
+      <app-departments [departments]="storesList" ></app-departments>
+    </ng-container>
+  </div>
+</ion-content>

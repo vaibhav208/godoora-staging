@@ -1,0 +1,655 @@
+// UPTO SMALL DEVICEs
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 10pt;
+  }
+
+  /** header **/
+  // .theme-bg-header {
+  //   ion-toolbar.theme-modal-title {
+  //     ion-title.logo-title {
+  //     }
+  //     .header-buttons-default {
+  //       .button-label {
+  //       }
+  //     }
+  //   }
+  
+  // }
+
+  .home-header-container {
+    flex-direction: column-reverse;
+
+    .app-logo {
+      width: 40pt;
+    }
+
+    .title-text {
+      text-align   : center;
+      font-size    : 14pt !important;
+      margin-bottom: 12pt !important;
+    }
+  }
+
+  .v-divider {
+    display: none;
+  }
+
+  .fee-chip {
+    width : 100% !important;
+    margin: 16px 0px !important;
+  }
+
+  .book-appointment-row,
+  .shop-keeper-row {
+    flex-direction: column;
+  }
+
+  .invoice-download-icon {
+    .invoice-label {
+      display: inline !important;
+    }
+  }
+
+  .home-header-column {
+    margin-bottom: 30px;
+    padding-left : 20px !important;
+    padding-right: 20px !important;
+
+    .title-text {
+      text-align : left;
+      line-height: 30px;
+    }
+  }
+
+  .specialities {
+    padding-left : 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .specialities-column {
+    padding-left: 0 !important;
+  }
+
+  .stores-card {
+    margin-left: 0 !important;
+  }
+
+  .filter-container {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 0px,
+      rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 0px 1px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 0px 0px !important;
+
+    .filter-item {
+      width  : 100% !important;
+      padding: 24px 0px 8px 0px !important;
+    }
+
+    .filter-reset-item {
+      padding: 24px 0px 8px 0px !important;
+    }
+  }
+
+  .clear-drop-down {
+    right: 24px;
+    top  : 50%;
+  }
+
+  .wrap_destination {
+    flex     : 0 0 80% !important;
+    max-width: 80% !important;
+  }
+
+  .small-wrap_destination {
+    height: 200px !important;
+    min-height: 200px !important;
+  }
+
+  .goyanna_exp {
+    .exp_inner {
+      figure {
+        height: 200px !important;
+      }
+    }
+  }
+
+  .full-screen {
+    .hero-intro {
+      min-width: 100% !important;
+      .hero-intro-title {
+        font-size: 1.4rem !important;
+        .pre-title {
+          font-size: 1rem !important;
+        }
+      }
+      a {
+        font-size: 1rem !important;
+      }
+    }
+  }
+
+}
+
+// UPTO MD DEVICEs
+@media screen and (max-width: 991px) {
+  .customzied .age-age_unit-group-control {
+    align-items   : normal;
+    flex-direction: column;
+
+    .age-item {
+      margin-right: 0;
+    }
+  }
+}
+
+// UPTO LG DEVICEs
+@media screen and (max-width: 1199px) {}
+
+// All OTHER EXTRA LARGE DEVICEs
+@media screen and (min-width: 1200px) {}
+
+/* MAX And Min Based */
+
+// XS
+@media screen and (max-width: 575px) and (min-width: 0px) {
+
+  figcaption {
+    h3 {
+      font-size     : 14px;
+      text-transform: uppercase;
+    }
+  }
+
+  // video {
+  //   min-height: 100% !important;
+  //   min-width: auto !important;
+  // }
+
+  app-grid-gallery {
+    label {
+      font-size: 14px !important;
+    }
+  }
+
+  .main-banner {
+    .carousel {
+      height: 250px;
+
+      .carousel-inner {
+        height: 100%;
+
+        .carousel-item {
+          height: 100%;
+
+          >.item {
+            height: 100%;
+
+            .slide {
+              height: 100%;
+
+              img {
+                width : 100%;
+                height: 100%;
+              }
+
+              .slide-info {
+                .caption {
+                  h1 {
+                    font-size: 20px !important;
+                  }
+
+                  h3 {
+                    font-size: 14px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu-slider {
+    width: 100% !important;
+  }
+
+  .stores {
+    .stores-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .land-button-container {
+    display: block !important;
+
+    ion-button {
+      margin : 16pt !important;
+      display: block !important;
+    }
+  }
+
+  .book-appointment-row,
+  .shop-keeper-row {
+    grid-template-columns: 1fr;
+  }
+
+  .book-appointment-dr-item {
+    --inner-padding-start: 0px;
+    --inner-padding-end  : 0px;
+
+    .appointment-dr-container {
+      display        : flex;
+      width          : 100%;
+      justify-content: center;
+      flex-direction : column;
+      align-items    : center;
+      text-align     : center;
+    }
+  }
+
+  /* Login Modal */
+  .login-modal-page {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Pre-test Call Modal */
+  .pre-test-modal-page {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 0pt;
+      }
+    }
+  }
+
+  .consent-modal-page {
+    .modal-wrapper {
+      height       : 70%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Feedback Modal */
+  .feedback-modal-page {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  .grid {
+    article {
+      width: calc(100% / 2 - 6pt) !important;
+
+      &:nth-child(2n) {
+        margin-right: 0pt !important;
+      }
+    }
+  }
+
+  /* carousel In Modal Modal */
+  .carousel-in-modal {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+      .ion-page {
+        // padding: 16pt;
+      }
+    }
+  }
+
+}
+
+// SM
+@media screen and (max-width: 767px) and (min-width: 576px) {
+  .stores {
+    .stores-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .book-appointment-row,
+  .shop-keeper-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Login Modal */
+  .login-modal-page {
+    .modal-wrapper {
+      height       : 50%;
+      width        : 60%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Pre-test Call Modal */
+  .pre-test-modal-page {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 0pt;
+      }
+    }
+  }
+
+  /* Feedback Modal */
+  .feedback-modal-page {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  .consent-modal-page {
+    .modal-wrapper {
+      height       : 70%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* carousel In Modal Modal */
+  .carousel-in-modal {
+    .modal-wrapper {
+      height       : 90%;
+      width        : 90%;
+      border-radius: 4pt;
+      .ion-page {
+        // padding: 16pt;
+      }
+    }
+  }
+
+}
+
+// MD
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  body {
+    .specialities-card {
+      cursor: pointer;
+    }
+
+    // video {
+    //   min-height: 100% !important;
+    //   min-width: auto !important;
+    // }
+
+    .stores {
+      .stores-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .book-appointment-row,
+    .shop-keeper-row {
+      grid-template-columns: 1fr 1px 1fr;
+    }
+  }
+
+  /* Login Modal */
+  .login-modal-page {
+    .modal-wrapper {
+      height       : 40%;
+      width        : 50%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Pre-test Call Modal */
+  .pre-test-modal-page {
+    .modal-wrapper {
+      height       : 80%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 0pt;
+      }
+    }
+  }
+
+  /* consent Modal */
+  .consent-modal-page {
+    .modal-wrapper {
+      height       : 80%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Feedback Modal */
+  .feedback-modal-page {
+    .modal-wrapper {
+      height       : 70%;
+      width        : 70%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  .specialities-column {
+    padding-left: 0 !important;
+  }
+}
+
+// LG
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .container {
+    max-width: 1064px !important;
+  }
+
+  // video {
+  //   min-height: 100% !important;
+  //   min-width: auto !important;
+  // }
+
+  body {
+    // max-width: 1064px;
+
+    .specialities-card {
+      cursor: pointer;
+    }
+
+    .stores {
+      .stores-row {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .book-appointment-row,
+    .shop-keeper-row {
+      grid-template-columns: 1fr 1px 1fr;
+    }
+  }
+
+  /* Login Modal */
+  .login-modal-page {
+    .modal-wrapper {
+      height       : 40%;
+      width        : 40%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Pre-test Call Modal */
+  .pre-test-modal-page {
+    .modal-wrapper {
+      height       : 80%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 0pt;
+      }
+    }
+  }
+
+  /* consent Modal */
+  .consent-modal-page {
+    .modal-wrapper {
+      height       : 80%;
+      width        : 80%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+
+  /* Feedback Modal */
+  .feedback-modal-page {
+    .modal-wrapper {
+      height       : 70%;
+      width        : 70%;
+      border-radius: 4pt;
+
+      .ion-page {
+        padding: 16pt;
+      }
+    }
+  }
+}
+
+// XL
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px !important;
+  }
+  body {
+    // max-width: 1200px;
+    .specialities-card {
+      cursor: pointer;
+    }
+
+    .stores {
+      .stores-row {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .book-appointment-row,
+    .shop-keeper-row {
+      grid-template-columns: 1fr 1px 1fr;
+    }
+
+    /* Login Modal */
+    .login-modal-page {
+      .modal-wrapper {
+        height       : 60%;
+        width        : 40%;
+        border-radius: 4pt;
+
+        .ion-page {
+          padding: 16pt;
+        }
+      }
+    }
+
+    /* carousel In Modal Modal */
+    .carousel-in-modal {
+      .modal-wrapper {
+        height       : 90%;
+        width        : 90%;
+        border-radius: 4pt;
+        .ion-page {
+          // padding: 16pt;
+        }
+      }
+    }
+
+    
+    /* Pre-test Call Modal */
+    .pre-test-modal-page {
+      .modal-wrapper {
+        height       : 80%;
+        width        : 80%;
+        border-radius: 4pt;
+
+        .ion-page {
+          padding: 0pt;
+        }
+      }
+    }
+
+    /* consent Modal */
+    .consent-modal-page {
+      .modal-wrapper {
+        height       : 80%;
+        width        : 80%;
+        border-radius: 4pt;
+
+        .ion-page {
+          padding: 16pt;
+        }
+      }
+    }
+
+    /* Feedback Modal */
+    .feedback-modal-page {
+      .modal-wrapper {
+        height       : 70%;
+        width        : 70%;
+        border-radius: 4pt;
+
+        .ion-page {
+          padding: 16pt;
+        }
+      }
+    }
+  }
+}

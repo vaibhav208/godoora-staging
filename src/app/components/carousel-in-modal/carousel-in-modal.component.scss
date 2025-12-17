@@ -1,0 +1,32 @@
+.image-viewer {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* optional, to avoid huge images */
+    margin: auto;
+    overflow: hidden;
+}
+
+.image-viewer img {
+    display: block;
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+    object-fit: contain;
+}
+
+.image-viewer .close-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: white;
+    border: none;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}

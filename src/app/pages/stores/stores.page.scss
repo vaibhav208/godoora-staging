@@ -1,0 +1,257 @@
+// NOTE: The red background test style has been removed.
+
+// Original Page Styles
+.menu-slider {
+  width: 50%;
+}
+
+.Slot-detail {
+  .experiences-gallery {
+    overflow: hidden;
+    height: 440px;
+    position: relative;
+
+    a {
+      display: block;
+      height: 100%;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .small-view {
+      display: flex;
+      flex-direction: column;
+
+      a:first-child {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+.book-appointment-slots-title {
+  font-size: 12pt;
+  color: #414141;
+}
+
+.book-appointment-slots-container {
+  .book-appointment-link {
+    color: #1a8cd2;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .slots-selection-container {
+    .date-selection {
+      display: flex;
+      margin: 4pt 0pt;
+      justify-content: space-between;
+      align-items: center;
+
+      .slots-showing-day {
+        font-size: 11pt;
+        color: #414141;
+      }
+    }
+
+    .available-slots-container {
+      .slot-session-header-title {
+        font-weight: 400;
+        padding-right: 8px;
+        font-size: 9pt;
+      }
+
+      .slot-session-header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          position: absolute;
+          content: "";
+          border-bottom: #ededed 1px solid;
+          top: 50%;
+          left: 0px;
+          right: 0px;
+          z-index: -1;
+        }
+      }
+
+      .slot-session-header-title {
+        background-color: #fff;
+        color: #373737;
+      }
+
+      .slot-session-header-icon {
+        height: 24px !important;
+        width: 24px !important;
+        background-position: left top;
+        background-size: cover;
+        display: inline-block;
+        background-color: #fff;
+      }
+
+      .slots {
+        text-align: center;
+        padding: 4pt;
+      }
+
+      .slot {
+        --background: translucent;
+        color: #717171 !important;
+        box-shadow: none;
+        outline: none;
+        font-weight: normal;
+        display: inline-block;
+        margin: 8pt;
+        --border-color: #ededed !important;
+        --border-width: 1px;
+        font-size: 11pt;
+        --padding-start: 4pt;
+        --padding-end: 4pt;
+
+        &.active {
+          --background-activated: transparent;
+          --background: #1a8cd2;
+          --background-focused: #1a8cd2;
+          --background-hover: #1a8cd2;
+          --border-color: #ffffff !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+}
+
+
+.slots-button-container {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  background: white;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+
+.branch-carousel {
+  .carousel-cells {
+    .carousel-cell {
+      img {
+        object-fit: fill !important;
+      }
+    }
+  }
+}
+
+.booking-engine {
+  .book-appointment-slots-container {
+    .slots-selection-container {
+      .available-slots-container {
+        .slot {
+          margin: 8pt 0pt;
+          width: calc(100% - 4pt);
+
+          &.green {
+            --border-color: #28a745 !important;
+          }
+
+          &.red {
+            --border-color: #dd2738 !important;
+          }
+
+          &.green.active {
+            --background-activated: transparent;
+            --background: #28a745;
+            --background-focused: #28a745;
+            --background-hover: #28a745;
+            --border-color: #ffffff !important;
+            color: white !important;
+          }
+
+          &.red.active {
+            --background-activated: transparent;
+            --background: #dd2738;
+            --background-focused: #dd2738;
+            --background-hover: #dd2738;
+            --border-color: #ffffff !important;
+            color: white !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ===============================================================
+// STYLES FOR OWL CAROUSEL NAVIGATION BUTTONS
+// Using :host ::ng-deep to apply styles to the child component
+// ===============================================================
+:host ::ng-deep {
+
+  .owl-carousel {
+    position: relative;
+  }
+
+  .owl-nav {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .owl-prev,
+  .owl-next {
+    pointer-events: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    color: #333 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: white !important;
+      color: black !important;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      ion-icon {
+        font-size: 22px;
+        --ionicon-stroke-width: 40px;
+      }
+    }
+  }
+
+  .owl-prev {
+    left: 10px;
+  }
+
+  .owl-next {
+    right: 10px;
+  }
+}

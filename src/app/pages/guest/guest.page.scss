@@ -1,0 +1,9 @@
+ion-textarea {
+    --placeholder-color: var(--ion-placeholder-color, var(--ion-color-step-400, #999999))
+}
+
+ion-select {
+    --placeholder-opacity: 0;
+    min-width: auto !important;
+    width: auto;
+}

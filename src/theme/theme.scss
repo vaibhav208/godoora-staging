@@ -1,0 +1,43 @@
+// Theme specific
+@mixin applyTheme($primary, $secondary, $font: "museo-500") {
+  body * {
+    font-family: $font !important;
+  }
+  .heading {
+    color: $primary !important;
+  }
+  .coming-soon-body {
+    h1 {
+      color: $primary;
+    }
+  }
+}
+
+html.monarch-theme {
+  $primary: #1a8cd2;
+  $secondary: rgb(6, 42, 6);
+  $font: "museo-500";
+  @include applyTheme($primary, $secondary);
+}
+
+html.fortune-theme {
+  $primary: #005295;
+  $secondary: #005295;
+  $font: "CastleT";
+  @include applyTheme($primary, $secondary, $font);
+}
+
+html.goyaana-theme {
+  $primary: #1a8cd2;
+  $secondary: #1a8cd2;
+  $font: "Open Sans";
+  @include applyTheme($primary, $secondary, $font);
+}
+
+html.nature-theme {
+  $primary: #ed6a0d;
+  $secondary: #bd022e;
+  $font: "Oswald";
+  @include applyTheme($primary, $secondary, $font);
+}
+

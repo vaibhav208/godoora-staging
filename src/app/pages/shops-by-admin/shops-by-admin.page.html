@@ -1,0 +1,76 @@
+<ion-content>
+  <div class="container">
+    <div class="body-part" *ngIf="!vendorDeatil.conceirge">
+      <ng-container>
+        <ion-grid class="stores my-1">
+          <ion-row class="stores-row">
+            <ion-col size-md="3" size-sm="6" size-xs="12" *ngFor="let store of storesList">
+              <ion-card class="stores-card">
+                <div class="d-flex stores-card-header">
+                  <div class="stores-item">
+                    <ng-container *ngIf="!store?.photo">
+                      <ion-avatar slot="start" class="stores-item-icon"
+                        [ngClass]="'first-letter-' + (store?.name? ((store.name | trimunit:1) | uppercase ) : '')">
+                        {{store.name? ((store?.name | trimunit:1) | titlecase ) : '' }}
+                      </ion-avatar>
+                    </ng-container>
+                    <ng-container *ngIf="store?.photo">
+                      <ion-avatar slot="start" class="stores-item-icon">
+                        <img [src]="store?.photo" [attr.alt]="store?.name" />
+                      </ion-avatar>
+                    </ng-container>
+                  </div>
+  
+                  <div class="stores-item w-100" style="margin-left: 8pt; width: 100%;">
+                    <div class="store-details-column stores-card-content">
+                      <ion-label class="stores-item-label ion-text-wrap">
+                        <h3 class="stores-item-title" *ngIf="store?.name">
+                          {{ store?.name}}
+                        </h3>
+                        <p class="stores-item-sub-title" *ngIf="store?.formattedAddress">
+                          {{store?.formattedAddress}}
+                        </p>
+                      </ion-label>
+                      <ion-label class="stores-card-content-speciality ion-text-wrap">
+                        <span class="speciality-value">{{store?.address}}</span>
+                      </ion-label>
+                      <ion-label class="stores-card-content-license-number ion-text-wrap" *ngIf="store?.contact">
+                        <span class="license-number-label">Contact Number.:</span>
+                        <span class="license-number-value">{{ store?.contact}}</span>
+                      </ion-label>
+                      <ion-label class="stores-card-content-license-number ion-text-wrap" *ngIf="store?.storeId">
+                        <span class="license-number-label">License No.:</span>
+                        <span class="license-number-value">{{ store?.storeId}}</span>
+                      </ion-label>
+                    </div>
+                    <div class="store-btn-container">
+                      <ion-button size="default" expand="outline" class="book-appointment-btn" tappable
+                        (click)="onStoreDetailClick(store)">
+                        <span class="mr-1">Book Slot</span>
+                      </ion-button>
+                    </div>
+                  </div>
+                </div>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+  
+      <ng-container *ngIf="storesList.length === 0">
+        <ion-grid class="home-search-stores mb-3">
+          <ion-row class="home-search-stores-row">
+            <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+              <ion-label class="ion-text-wrap error-message">
+                No search result found!!</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="vendorDeatil.conceirge">
+      <app-services [services]="storesList" ></app-services>
+    </ng-container>
+  </div>
+</ion-content>
+

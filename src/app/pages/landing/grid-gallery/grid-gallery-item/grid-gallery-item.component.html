@@ -1,0 +1,7 @@
+<div class="position-relative">
+    <img #img [src]="item?.img +'?' + currentTime" (load)="calculateRows()" />
+    <a *ngIf="item.routerLink && !item.extLink" [routerLink]="[item.routerLink]"></a>
+    <a *ngIf="item.extLink && !item.routerLink" [href]="item.extLink"></a>
+    <div class="overlay"></div>
+    <label *ngIf="item.label">{{ item.label }}</label>
+</div>

@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="container">
+    <ion-grid class="specialities">
+      <div class="specialities-title">
+        <ion-title size="small">
+          <span style="font-weight: 600;padding-left: 8px;">Select Location</span>
+        </ion-title>
+      </div>
+      <ion-row class="specialities-row">
+        <ng-container *ngFor="let item of admins">
+          <ion-col class="specialities-column" size-lg="4" size-md="4" size-sm="6" size-xs="12">
+            <ion-card class="specialities-card" tappable (click)="onAdminClick(item)">
+              <ion-item class="specialities-item">
+                <ion-label class="specialities-item-label">
+                  <h3 class="specialities-item-title">{{ item.name }}</h3>
+                </ion-label>
+                <ion-icon slot="end" name="chevron-forward-outline" class="specialities-item-arrow"></ion-icon>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+

@@ -1,0 +1,52 @@
+.shop-form {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    .shop-keeper-grid {
+        .shop-keeper-row {
+            display: grid;
+            grid-column-gap: 10px;
+            grid-row-gap: 9px;
+            ion-col {
+                display: block;
+            }
+            .shop-address-search {
+                padding-left: 0px;
+                padding-right: 0px;
+                .searchbar-input-container.sc-ion-searchbar-md {
+                    --box-shadow: none !important;
+                    border-bottom: 1px solid rgba(84, 80, 80, 0.25) !important;
+                }
+            }
+            .v-divider {
+                width: 1px !important;
+                padding: 0px;
+                font-size: 1px;
+                -webkit-box-flex: 0;
+                flex: none;
+                max-width: 1px !important;
+                border-right: 1px solid #dcdcdc;
+            }
+        }
+        .sc-ion-label-md-h {
+            font-size: 12pt !important;
+        }
+    }
+}
+
+.shop-keeper-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10pt;
+    padding: 4pt 16pt;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    z-index: 1;
+    margin: 0px;
+}
+
+.native-input[disabled] {
+    opacity: 1 !important;
+}

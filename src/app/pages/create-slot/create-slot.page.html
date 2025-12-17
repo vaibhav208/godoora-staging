@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="container">
+    <form #createSlotForm="ngForm">
+      <div class="login-container">
+        <ion-label class="ion-text-wrap login-model-label">
+          Please enter customer details
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </ion-label>
+          <div class="mobileNoMaindiv mt-2">
+            <div class="item-small-text">
+              <ion-item class="firstName-item">
+                <ion-input type="text" [(ngModel)]="firstName" name="firstName" placeholder="Enter Name" required></ion-input>
+              </ion-item>
+            </div>
+          </div>
+          <div class="mobileNoMaindiv mt-2">
+            <div class="item-small-text">
+              <ion-item class="firstName-item">
+                <ion-input type="number" pattern="[1-9]{1}[0-9]{9}" [(ngModel)]="mobileNumber" name="mobileNumber" placeholder="Enter Mobile Number" required></ion-input>
+              </ion-item>
+            </div>
+          </div>
+          <div class="login-otp-button-container d-flex justify-content-end mt-3">
+            <ion-button [disabled]="createSlotForm.invalid" size="default" type="submit" id="login" (click)="create()" class="login-confirmation-btn">
+              <span class="mr-1">Create</span>
+            </ion-button>
+          </div>
+        </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,110 @@
+<ion-content>
+  <div class="container">
+    <div class="date-selection">
+      <ion-button (click)="selectPreviousDate()" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="chevron-back-sharp"></ion-icon>
+      </ion-button>
+      <ion-label class="slots-showing-day">{{ selectedDate | date:'EE, MMMM d, yyyy'}}</ion-label>
+      <ion-button (click)="selectNextDate()" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-grid class="consultation-list-container p-0">
+      <ion-row style="width:100%;" class="p-0">
+        <ion-col class="p-0" size="12">
+          <table class="consultation-table">
+            <tbody>
+              <tr>
+                <td style="width: 20%;" class="availability-column ion-hide-sm-down">
+                  <div class="d-flex align-items-center">Name</div>
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  Slot Time
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  Room Number
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  Comments
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  Status
+                </td>
+              </tr>
+              <tr *ngFor="let item of bookedCustomers; let i = index">
+                <td style="width: 20%;" class="availability-column ion-hide-sm-down">
+                  <div class="d-flex align-items-center">
+                    {{ item.storeName }}
+                  </div>
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  {{ item.slotTime }}
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                    {{ item.room_no ? item.room_no : '-' }}
+                </td>
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  {{ item.comments }}
+                </td>
+                <!-- <td *ngIf="!vendorDeatil.conceirge" style="width: 20%;" class="ion-hide-sm-down">
+                  <ion-label class="ion-text-wrap">{{ vendorDeatil.conceirge ? '' : ('Verification Code:' + item.verifyCode ) }}</ion-label>
+                </td> -->
+                <td style="width: 20%;" class="ion-hide-sm-down">
+                  <div class="action-container">
+                    <ion-label class="ion-text-wrap mr-1" style="min-width: 200px;">
+                      <span [className]="'consultation-status-tag new'">{{  item.bookingStatus ? item.bookingStatus : 'New' }}</span>
+                    </ion-label>
+                    <div class="options">
+                      <ion-button (click)="item.options = !item.options " slot="end" tappable strong="true"
+                        class="menu-btn" fill="block">
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                      </ion-button>
+                    </div>
+                    <div *ngIf="item.options" class="status-popover">
+                      <ng-container *ngTemplateOutlet="statusList"></ng-container>
+                    </div>
+                  </div>
+                </td>
+                <td style="width: 97%;padding-top:0;" class="ion-hide-sm-up">
+                  <div class="mobile-view-contaner">
+                    <ion-label class="name"><b>Name:- </b>{{ item.storeName }}</ion-label>
+                    <ion-label class="name"><b>Slot Time:- </b>{{ item.slotTime }}</ion-label>
+                    <ion-label class="name"><b>Room Number:- </b>{{ item.room_no }}</ion-label>
+                    <ion-label class="name"><b>Comments:- </b>{{ item.comments }}</ion-label>
+                    <ion-label *ngIf="!vendorDeatil.conceirge" class="name">{{ vendorDeatil.conceirge ? '' : ('Verification Code:' + item.verifyCode ) }}</ion-label>
+                    <div class="status">
+                      <div class="d-flex">
+                        <ion-label class="ion-text-wrap mr-1">
+                          <span [className]="'consultation-status-tag new'">{{  item.bookingStatus ? item.bookingStatus : 'New' }}</span>
+                        </ion-label>
+                      </div>
+                    </div>
+                    <div class="action-container">
+                      <div class="options">
+                        <ion-button (click)="item.options = !item.options" slot="end" tappable strong="true" class="menu-btn" fill="block">
+                          <ion-icon name="ellipsis-vertical"></ion-icon>
+                        </ion-button>
+                      </div>
+                      <div *ngIf="item.options" class="status-popover">
+                        <ng-container *ngTemplateOutlet="statusList"></ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <ng-template #statusList>
+                  <ion-icon name="close" (click)="item.options = false"></ion-icon>
+                  <ul>
+                    <li><button [disabled]="item.bookingStatus === 'COMPLETED'" (click)="confirmCancelAppointment(item, i)">Cancel Request</button></li>
+                  </ul>
+              </ng-template>
+              </tr>
+            </tbody>
+          </table>
+          <div class="no-result" *ngIf="bookedCustomers && bookedCustomers.length === 0">
+            There are no pending appointments
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

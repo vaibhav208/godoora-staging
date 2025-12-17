@@ -1,0 +1,119 @@
+.error-message {
+    color: #f06850;
+    font-size: 9pt;
+    display: block;
+    margin: 8pt 0pt;
+  }
+  .close{
+    float: right;
+    font-size: 20px;
+    outline: none;
+  }
+  .otp-relatives {
+    color: #364469;
+    font-size: 9pt;
+    display: inline-block;
+    margin: 0pt;
+  }
+
+  .resendOTP {
+    background-color: #364469;
+    color: white;
+    padding: 2pt 4pt;
+    display: inline-block;
+    border-radius: 2pt;
+    margin-top: 0pt;
+    margin-left: 8pt;
+    cursor: pointer;
+  }
+
+  .login-model-label {
+    color: #364469;
+    margin-bottom: 8pt;
+    display: block;
+    font-size: 11pt;
+  }
+
+  .mobileNoMaindiv {
+    display: flex;
+    flex: 1;
+      align-items: baseline;
+    .countryCode-select {
+      padding: 0pt;
+    }
+    .item-small-text{
+        flex: 1;
+        small{
+          font-size: 10px;
+          color: rgba(54, 68, 105, 0.68);
+          display: block;
+          margin-top: 2pt;
+      }
+    }
+    .mobileNumber-item {
+      -webkit-box-flex: 1;
+      flex: 1;
+      --min-height: 24pt;
+      font-size: 10pt;
+    }
+    .firstName-item {
+      -webkit-box-flex: 1;
+      flex: 1;
+      --min-height: 24pt;
+      font-size: 10pt;
+      // margin: 8px 8px 8px 0px;
+    }
+  }
+
+  .login-otp-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .login-confirmation-btn,
+  .otp-confirmation-btn {
+    margin: 8px 8px 8px 0px;
+    height: 40px;
+    --box-shadow: none;
+    font-weight: 400;
+    // v3
+    color: white;
+    --background: #1a8cd2;
+    --background-activated: #1a8cd2;
+    --background-hover: #1a8cd2;
+    --background-focused: #1a8cd2;
+  }
+  .login-container,
+  .otp-container,
+  .otp-success-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .login-form {
+      flex: 1;
+      position: relative;
+    }
+  }
+
+  .otp-done {
+    font-size: 32pt;
+    color: green;
+    margin: 16pt;
+  }
+  .bounce-enter-active {
+    animation: bounce-in 0.5s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

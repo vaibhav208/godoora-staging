@@ -1,0 +1,218 @@
+.today {
+    background-color: black;
+  }
+  .consultation-list {
+    .consultation-item {
+      font-size: 9pt;
+      color: #414141;
+      font-weight: 400;
+      --min-height: 32px;
+      .name-label {
+        display: flex;
+        align-items: center;
+        .available-icon {
+          color: mediumseagreen;
+        }
+      }
+      --padding ion-row {
+        display: flex;
+        align-items: center;
+      }
+      .start-btn {
+        min-height: 15px;
+        font-size: 7pt;
+        font-weight: 500;
+        margin: 0px;
+        --padding-start: 4px;
+        --padding-end: 4px;
+        --padding-top: 0px;
+        --padding-bottom: 0px;
+        line-height: unset;
+        --border-radius: 3px;
+        color: #f3f3f3;
+        ion-icon {
+          font-size: 18px;
+        }
+        &.old {
+          --background: lightgrey;
+        }
+      }
+      .download-btn {
+        min-height: 15px;
+        font-size: 7pt;
+        font-weight: 500;
+        margin: 0px;
+        --padding-start: 4px;
+        --padding-end: 4px;
+        --padding-top: 0px;
+        --padding-bottom: 0px;
+        line-height: unset;
+        --border-radius: 3px;
+        --background: #747474;
+        color: #f3f3f3;
+      }
+      &.today {
+        .start-btn {
+          --background: mediumseagreen;
+        }
+      }
+      .age {
+        font-size: 80%;
+      }
+    }
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .options {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
+    .menu-btn {
+      font-size: 9pt;
+      --background: transparent;
+      color: #414141;
+      --background-hover: transparent;
+    }
+}
+  .appt-default-button {
+    font-size: 14px;
+    --background: #ffffff;
+    --border-width: 1px;
+    --border-radius: 14px !important;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --background-hover: #2cd18a;
+    --background-hover-opacity: 1;
+    --background-activated: #2cd18a;
+    --box-shadow: none;
+    height: 28px;
+    min-width: 112px;
+    line-height: normal;
+    margin-left: 4pt;
+    font-weight: 600;
+    .button-label {
+      text-transform: none;
+    }
+    &.book-btn {
+      --border-color: #2cd18a;
+      color: #414141;
+    }
+    &.other-btn {
+      --border-color: #b1b1b1;
+      color: #414141;
+    }
+    &:hover {
+      color: #ffffff;
+    }
+  }
+
+  .consultation-list-container {
+    padding: 0 40px;
+    .consultation-table {
+      .today {
+        background-color: #FAFAFA;
+      }
+      width: 100%;
+      .value-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .value-label {
+        font-size: 14px;
+        color: #414141;
+      }
+      .text-small {
+        font-size: 13px;
+        color: #717171;
+      }
+      tr {
+        border-bottom: 1px solid #eae8e8;
+      }
+      td {
+        padding: 8px;
+      }
+    }
+    .mobile-view-contaner {
+      display: flex;
+      flex-direction: column;
+      .name {
+        font-size: 14px;
+        color: #414141;
+        line-height: 20px;
+      }
+      .patient-name {
+        font-size: 14px;
+        color: #717171;
+        line-height: 20px;
+        word-break: break-word;
+      }
+      .date {
+        color: #717171;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .status {
+        display: flex;
+      }
+    }
+    .no-result {
+      color: #DF5E57;
+      padding: 8px;
+      display: flex;
+      justify-content: center
+    }
+  }
+
+  .consultation-status-tag {
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #3688cb;
+    &.new {
+        color: #ffffff;
+        background: #3688cb;
+    }
+    &.PENDING {
+      color: #ffffff;
+      background: #9a92c9;
+    }
+    &.SCHEDULED {
+      color: #ffffff;
+      background: #3688cb;
+    }
+    &.IN_PROGRESS {
+      color: #ffffff;
+      background: #e88231;
+    }
+    &.CANCELLED_BY_PATIENT {
+      color: #ffffff;
+      background: #df5e57;
+    }
+    &.CANCELLED_BY_DOCTOR {
+      color: #ffffff;
+      background: #df5e57;
+    }
+    &.CANCELLED_BY_SYSTEM {
+      color: #ffffff;
+      background: #df5e57;
+    }
+    &.COMPLETED {
+      color: #ffffff;
+      background: #4f8b46;
+    }
+  }
+
+  .guest-list-filter {
+    ion-datetime{
+        border: 1px solid grey;
+    }
+  }
+

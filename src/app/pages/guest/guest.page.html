@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="container">
+    <div class="guest-form" *ngIf="!enableGuestDetail" >
+      <form (ngSubmit)="addGuest()" #guestForm="ngForm" style="padding: 15px;">
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="guest.name" name="name" placeholder="Enter Name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="guest.phonenumber" pattern="[1-9]{1}[0-9]{9}" name="phone" placeholder="Enter MobileNumber" required></ion-input>
+        </ion-item>
+        <ion-button ion-button type="submit" [disabled]="guestForm.invalid" class="mt-3">Add Guest</ion-button>
+      </form>
+    </div>
+    <div class="guest-form" *ngIf="enableGuestDetail" >
+      <form (ngSubmit)="updateGuestDetail()" #guestDetailForm="ngForm" style="padding: 15px;">
+        <ion-item>
+          <ion-label>Check In</ion-label>
+          <ion-datetime name="checkinDate" displayFormat="DD MM, YYYY HH:mm" [(ngModel)]="guestDetail.checkIn"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Check Out</ion-label>
+          <ion-datetime name="checkOutDate" displayFormat="DD MM, YYYY HH:mm" [(ngModel)]="guestDetail.checkOut"></ion-datetime>
+        </ion-item>
+        <ion-item class="firstName-item">
+          <ion-label>Select Room Number</ion-label>
+          <ion-select style="min-width: 100%;" placeholder="Select Room Number" name="roomNumber" [(ngModel)]="guestDetail.roomId">
+            <ion-select-option [value]="room.roomNumber"  *ngFor="let room of rooms" >{{ room.roomNumber }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="firstName-item">
+          <ion-input type="text" [(ngModel)]="guestDetail.voucherNo" name="voucherNo" placeholder="Enter Voucher Number"></ion-input>
+        </ion-item>
+        <ion-item class="firstName-item">
+          <ion-textarea [(ngModel)]="guestDetail.additionalGuest" name="additionalGuest" placeholder="Enter Additional Guests" ></ion-textarea>
+        </ion-item>
+        <ion-button ion-button type="submit" [disabled]="guestDetailForm.invalid" class="mt-3">Update Guest Detail</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

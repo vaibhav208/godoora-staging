@@ -1,0 +1,21 @@
+<!-- Header - S -->
+<ion-header class="theme-bg-header" [ngClass]="getClassName()" [translucent]="true">
+  <div class="container">
+    <ion-toolbar class="theme-modal-title" mode="md">
+      <div class="ion-page" id="main-content">
+        <ion-toolbar class="theme-modal-title" mode="md">
+          <ion-title class="logo-title" mode="md" >
+            <ion-icon *ngIf="!hideNagigationBackArrow()" (click)="navigateBack()" name="arrow-back-circle-outline" style="font-size: 18pt;display: inline-flex;vertical-align: middle;margin-right: 8pt;color: #1a8cd2;" ></ion-icon>
+            <img [src]="vendorDetail?.logo" tappable [routerLink]="['/']" (click)="navigateOnLogoClick()" routerDirection="forward" >
+          </ion-title>
+          <ion-buttons slot="end" class="mr-2">
+            <span *ngIf="userDetail" class="logged-user-name" >{{ userDetail.name ? userDetail.name : userDetail.phonenumber }}</span>
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+    </ion-toolbar>
+  </div>
+  <div class="overlay"></div>
+</ion-header>
+<!-- Header - E -->

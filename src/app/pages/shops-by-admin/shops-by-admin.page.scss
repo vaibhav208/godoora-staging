@@ -1,0 +1,300 @@
+.header-part {
+    color: #414141;
+    .select-location {
+      width: 100%;
+      border: 1px solid #e2e2e2;
+      margin-top: 16pt;
+      ion-icon {
+        font-size: 14pt;
+      }
+      ion-label {
+        margin-left: 8pt;
+      }
+      ion-select {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .home-header-container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      .home-app-logo-container {
+        text-align: end;
+        .app-logo {
+          height: 186px;
+        }
+      }
+      .home-header-column {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+      .title-text {
+        font-size: 16pt;
+        color: #212121;
+        font-weight: 600;
+        margin-bottom: 20pt;
+      }
+      .search-bar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .search-bar-label {
+          color: #4b4b4b;
+          font-size: 11pt;
+        }
+        .search-bar {
+          --box-shadow: none;
+          border: 1px solid #e2e2e2;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          margin-top: 2pt;
+          border-radius: 2pt;
+          .searchbar-input-container {
+            .searchbar-input.sc-ion-searchbar-md {
+              font-size: 14px;
+              box-shadow: cadetblue 1px 3px 1px 2px !important;
+            }
+          }
+        }
+        .sc-ion-searchbar-md-h {
+          padding-inline-start: 0px;
+          padding-inline-end: 0px;
+        }
+      }
+    }
+  }
+
+  .body-part {
+
+    .stores {
+      padding-left: 16px;
+      padding-right: 16px;
+      .stores-row {
+        display: grid;
+        grid-column-gap: 10px;
+        grid-row-gap: 9px;
+        ion-col {
+          display: inherit;
+        }
+        .stores-card {
+          margin-inline-start: 0pt;
+          margin-inline-end: 0pt;
+          margin-block-start: 0px;
+          margin-block-end: 4px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px,
+            rgba(0, 0, 0, 0.14) 0px 4px 4px 0px,
+            rgba(0, 0, 0, 0.12) 0px 0px 4px 0px,
+            rgba(0, 0, 0, 0.12) 0px 4px 0px 0px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 2pt;
+          margin-left: 12px;
+          margin-top: 12px;
+          padding-left: 16px;
+          padding-top: 16px;
+          padding-right: 16px;
+          border: 1px solid #80808085;
+          .stores-card-header {
+            padding: 0;
+            height: 100%;
+            // border-bottom: 1px solid #f9f9f9;
+            position: relative;
+            .stores-item {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              --padding-bottom: 16px;
+              --padding-top: 16px;
+              // Card-item-icons
+              .store-btn-container {
+                display: flex;
+                justify-content: flex-end;
+              }
+              .stores-item-icon {
+                margin-inline-end: 8pt;
+                width: 32pt;
+                height: 32pt;
+                border: 1px solid #dadada;
+                display: flex;
+                align-items: center;
+                font-size: 16pt;
+                justify-content: center;
+                font-weight: 500;
+                box-shadow: 0px 0px 1px 3px #f1f1f1;
+                align-self: flex-start;
+              }
+              .store-details-column {
+                display: flex;
+                flex-direction: column;
+              }
+              // Card-item-label
+              .stores-item-label {
+                .stores-item-title {
+                  font-weight: 600;
+                  color: #212121;
+                  font-size: 11pt;
+                  margin: 0;
+                }
+                .stores-item-sub-title {
+                  font-size: 9pt;
+                  color: #212121;
+                  line-height: 10pt;
+                  margin-top: 4pt;
+                }
+              }
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              width: calc(100% - 16pt);
+              left: 8pt;
+            }
+          }
+
+          .stores-card-content {
+            .stores-card-content-designation {
+              display: flex;
+              font-size: 10pt;
+              color: #434952;
+              margin-top: 4pt;
+            }
+
+            .stores-card-content-location {
+              display: flex;
+              font-size: 10pt;
+              color: #8e8e8e;
+            }
+
+            .stores-card-content-license-number {
+              display: flex;
+              margin-top: 4pt;
+              .license-number-label {
+                font-size: 8pt;
+                color: #a7a7a7;
+                line-height: 10pt;
+              }
+              .license-number-value {
+                font-size: 8pt;
+                color: #777676;
+                margin-left: 2pt;
+                line-height: 10pt;
+              }
+            }
+
+            .stores-card-content-speciality {
+              display: flex;
+              align-items: center;
+              margin-top: 1pt;
+              .speciality-label {
+                font-size: 9pt;
+                color: #a7a7a7;
+                line-height: 10pt;
+              }
+              .speciality-value {
+                font-size: 9pt;
+                color: #212121;
+              }
+            }
+
+            .stores-card-content-language {
+              display: flex;
+              align-items: center;
+              margin-top: 1pt;
+              .language-label {
+                font-size: 8pt;
+                color: #a7a7a7;
+                line-height: 10pt;
+              }
+              .language-value {
+                font-size: 8pt;
+                color: #434952;
+                margin-left: 2pt;
+              }
+              .language-tag {
+                background: #fbfbfb;
+                padding: 0pt 3pt;
+                border-radius: 60px;
+                font-size: 8pt;
+                border: 1px solid #cccccc;
+                color: #7b7b7b;
+                margin-right: 2pt;
+                line-height: 1;
+              }
+            }
+
+            .stores-item-special-text {
+              font-size: 8pt;
+              color: #a0a0a0;
+              line-height: 10pt;
+              margin-top: 6pt;
+            }
+            .stores-card-content-label {
+              .stores-card-content-special-text {
+                font-size: 8pt;
+                color: #a0a0a0;
+                margin-bottom: 8pt;
+              }
+              .stores-card-content-title {
+                color: #8a8a8a;
+                font-weight: 500;
+                font-size: 8pt;
+              }
+              .stores-card-content-text {
+                font-size: 8pt;
+                color: #a0a0a0;
+              }
+            }
+          }
+
+          .book-appointment-btn {
+            margin: 8px 8px 8px 0px;
+            height: 24pt;
+            --box-shadow: none;
+            font-weight: 400;
+            color: #1a8cd2;
+            --border-color: #1a8cd2;
+            --background: #FFFFFF;
+            // --background-activated: #1a8cd2;
+            // --background-hover: #1a8cd2;
+            // --background-hover-opacity: 1;
+            // --background-focused: #1a8cd2;
+            --border-width: 1px;
+            font-size: 10pt;
+            // &:hover {
+            //   color: #FFFFFF;
+            // }
+            text-transform: none;
+          }
+        }
+      }
+    }
+
+    .home-search-stores {
+      .home-search-stores-title {
+        margin-inline-start: 5px;
+        padding-block-end: 5px;
+        margin-block-end: 8px;
+
+        display: flex;
+        align-items: center;
+        ion-icon {
+          font-size: 12pt;
+        }
+        ion-title {
+          color: #414141;
+          font-size: 10pt;
+          padding-inline-start: 0px;
+        }
+      }
+    }
+  }
+
+/** common **/
+.error-message {
+    color: #f06850;
+    font-size: 9pt;
+    display: block;
+    margin: 8pt 0pt;
+}

@@ -1,0 +1,190 @@
+<ion-content>
+  <ng-container *ngIf="showLoginContainer">
+    <form #loginForm="ngForm">
+      <div class="login-wrapper">
+      <div class="login-container">
+        <ion-label class="ion-text-wrap login-model-label">
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </ion-label>
+        <ion-label class="ion-text-wrap login-model-label">
+          Login
+        </ion-label>
+        <ion-grid  *ngIf="enableRadio">
+          <ion-radio-group [value]="type" (ionChange)="typeChnage($event)">
+            <ion-row>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-label>Customer</ion-label>
+                  <ion-radio slot="start" [value]="false"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-label>{{ (vendorDeatil ? vendorDeatil.label : 'Shop' ) }}</ion-label>
+                  <ion-radio slot="start" [value]="true"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-radio-group>
+        </ion-grid>
+        <ng-container *ngIf="vendorDeatil[type ? 'S' : 'c'] && vendorDeatil[type ? 'S' : 'c'].loginType.normalLogin">
+          <div class="mobileNoMaindiv mt-2 mb-2">
+            <div class="item-small-text">
+              <ion-item class="firstName-item">
+                <ion-input type="text" [(ngModel)]="mobileNumber" name="mobileNumber" placeholder="Enter Mobile Number" required></ion-input>
+              </ion-item>
+            </div>
+          </div>
+          <ng-container *ngIf="!type">
+            <div class="row m-0">
+              <div class="col-6 p-0">
+                <ion-item lines="none">
+                  <ion-label>Hotel Guest</ion-label>
+                  <ion-toggle
+  slot="end"
+  [(ngModel)]="is_guest"
+  [ngModelOptions]="{standalone: true}"
+  (ionChange)="onGuestTypeChange($event)">
+</ion-toggle>
+
+
+                </ion-item>
+              </div>
+              <div class="col-6 p-0" *ngIf="is_guest">
+                <ion-item class="firstName-item">
+                  <ion-input type="number" [(ngModel)]="room_no" name="roomNumber" placeholder="Enter Room Number" required></ion-input>
+                </ion-item>
+              </div>
+            </div>
+          </ng-container>
+          <div class="login-otp-button-container d-flex justify-content-end mt-2">
+            <ion-button [disabled]="loginForm.invalid" size="default" type="submit" id="login" (click)="confirmMobile()" class="login-confirmation-btn">
+              <span class="mr-1">Login</span>
+            </ion-button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="vendorDeatil[type ? 'S' : 'c'] && vendorDeatil[type ? 'S' : 'c'].loginType.googleLogin">
+          <div class="or-divider">
+            <div>
+              <span>or</span>
+            </div>
+          </div>
+          <div style=" display: flex;justify-content: center;">
+            <ion-item lines="none" class="my-3">
+              <ion-img (click)="signInWithGoogle()" src="../../../assets/images/google.png"></ion-img>
+            </ion-item>
+          </div>
+        </ng-container>
+      </div>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="showPassContainer">
+    <div class="login-wrapper">
+      <div class="login-container">
+    <form #passForm="ngForm" class="otp-form customzied mt-2">
+      <ion-label class="ion-text-wrap login-model-label mb-2">
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </ion-label>
+      <ion-label class="ion-text-wrap login-model-label mb-2">
+        Login
+      </ion-label>
+      <div class="mobileNoMaindiv mt-2 mb-2" *ngIf="firstTime && type">
+        <div class="item-small-text">
+          <ion-item class="firstName-item">
+            <ion-select style="min-width: 100%;" *ngIf="vendorDeatil.conceirge" placeholder="Select Name" name="firstname" [(ngModel)]="firstName" interface="action-sheet">
+              <ion-select-option *ngFor="let department of departments" >{{ department.name }}</ion-select-option>
+            </ion-select>
+            <ion-input *ngIf="!vendorDeatil.conceirge" type="text" [(ngModel)]="firstName" name="firstName" [placeholder]="type ? 'Enter '+ (vendorDeatil ? vendorDeatil.label : 'Shop' ) + ' Name': 'Enter Name'" required></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="mobileNoMaindiv mt-2 mb-2" *ngIf="firstTime && !type">
+        <div class="item-small-text">
+          <ion-item class="firstName-item">
+            <ion-input type="text" [(ngModel)]="firstName" name="firstName" placeholder="Enter Password" [placeholder]="type ? 'Enter '+ (vendorDeatil ? vendorDeatil.label : 'Shop' ) + ' Name': 'Enter Name'" required></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="mobileNoMaindiv mt-2 mb-2">
+        <div class="item-small-text">
+          <ion-item class="firstName-item">
+            <ion-input type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (keydown.enter)="login()" [(ngModel)]="password" name="password" placeholder="Enter Password" required></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="mobileNoMaindiv mt-2 mb-2" *ngIf="firstTime">
+        <div class="item-small-text">
+          <ion-item class="firstName-item">
+            <ion-input type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" (keydown.enter)="login()" [(ngModel)]="cnfPassword" name="cnfpassword" placeholder="Confirm Password" required></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <ion-label class="ion-text-wrap login-model-label mb-2" style="font-size: 9pt;color: green">
+        Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+      </ion-label>
+      <div class="login-otp-button-container d-flex justify-content-end mt-2">
+        <ion-button [disabled]="passForm.invalid" size="default" type="submit" id="login" (click)="login()" class="login-confirmation-btn">
+          <span class="mr-1">{{ firstTime ? 'GET OTP' : 'Submit' }}</span>
+        </ion-button>
+      </div>
+    </form>
+    </div>
+  </div>
+  </ng-container>
+
+  <ng-container *ngIf="showOTPContainer">
+    <ion-label class="ion-text-wrap login-model-label">
+      <button type="button" class="close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </ion-label>
+    <ion-label class="ion-text-wrap login-model-label">
+      Please enter the OTP number sent to +91 {{this.user?.phonenumber}}
+    </ion-label>
+    <div class="login-wrapper">
+      <div class="login-container">
+    <form #otpForm="ngForm" class="otp-form customzied mt-2">
+      <div class="otp-group-control">
+        <div class="otp-group">
+          <ion-item class="customzied-item mb-0 otp-item">
+            <ion-input type="tel" [(ngModel)]="otpObj.digit1" #loginOtpdigit1
+            name="loginOtpdigit1" minlength="1" maxlength="1" required (keyup)="otpController($event, loginOtpdigit2, '')"
+            ></ion-input>
+          </ion-item>
+          <ion-item class="customzied-item mb-0 otp-item">
+            <ion-input type="tel" [(ngModel)]="otpObj.digit2" #loginOtpdigit2
+            name="loginOtpdigit2" minlength="1" maxlength="1" required (keyup)="otpController($event, loginOtpdigit3, loginOtpdigit1)"
+            ></ion-input>
+          </ion-item>
+          <ion-item class="customzied-item mb-0 otp-item">
+            <ion-input type="tel" [(ngModel)]="otpObj.digit3" #loginOtpdigit3
+            name="loginOtpdigit3" minlength="1" maxlength="1" required (keyup)="otpController($event, loginOtpdigit4, loginOtpdigit2)"
+            ></ion-input>
+          </ion-item>
+          <ion-item class="customzied-item mb-0 otp-item">
+            <ion-input type="tel" [(ngModel)]="otpObj.digit4" #loginOtpdigit4
+            name="loginOtpdigit4" minlength="1" maxlength="1" required (keyup)="otpController($event, '', loginOtpdigit3)"
+            ></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="d-flex ion-align-items-center mt-2" *ngIf="resendOTPButton">
+        <div class="otp-relatives no-sms">Don't you get the SMS?</div>
+        <div class="ml-1 otp-relatives resendOTP" (click)="onResendOTPClick()"> Resend OTP</div>
+      </div>
+      <div class="login-otp-button-container d-flex justify-content-end mt-2">
+        <ion-button [disabled]="otpForm.invalid" size="default" type="submit" id="login" (click)="confirmOtp()" class="login-confirmation-btn">
+          <span class="mr-1">Confirm</span>
+        </ion-button>
+      </div>
+    </form>
+    </div>
+    </div>
+  </ng-container>
+</ion-content>

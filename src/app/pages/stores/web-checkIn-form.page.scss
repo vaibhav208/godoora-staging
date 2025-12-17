@@ -1,0 +1,19 @@
+label {
+    margin: 0px;
+    margin-left: 4px;
+}
+
+.signature-pad {
+    border: 1px dotted grey ;
+    canvas {
+        width: 100%;
+    }
+    .sign-placeholder {
+        position: absolute;
+        font-size: 20px;
+        color: grey;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

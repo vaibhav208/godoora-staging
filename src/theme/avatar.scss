@@ -1,0 +1,248 @@
+$base-bg-1: #FDEFCA;
+$base-color-1: #8C702B;
+
+$base-bg-2: #D1EBDE;
+$base-color-2: #296144;
+
+$base-bg-3: #DBE1D7;
+$base-color-3: #37452B;
+
+$base-bg-4: #D6D4E9;
+$base-color-4: #302B53;
+
+$base-bg-5: #FBDED8;
+$base-color-5: #8A4A40;
+
+$base-bg-6: #E7CED1;
+$base-color-6: #592327;
+
+$base-bg-7: #CFE0D6;
+$base-color-7: #19402A;
+
+$base-bg-8: #F8EACD;
+$base-color-8: #785819;
+
+$base-bg-9: #E2DEED;
+$base-color-9: #433C5D;
+
+$base-bg-10: #E2DEED;
+$base-color-10: #433C5D;
+
+$base-bg-11: #DBF0F3;
+$base-color-11: #376769;
+
+$base-bg-12: #E8DDD9;
+$base-color-12: #5B4336;
+
+$base-bg-13: #E6EDDD;
+$base-color-13: #546340;
+
+$base-bg-14: #C7D4E7;
+$base-color-14: #07214B;
+
+$base-bg-15: #EBD3E1;
+$base-color-15: #52203E;
+
+$base-bg-16: #F2D5CD;
+$base-color-16: #692917;
+
+$base-bg-17: #FFF0CC;
+$base-color-17: #715410;
+
+$base-bg-18: #CFDADE;
+$base-color-18: #153037;
+
+$base-bg-19: #E9E9E9;
+$base-color-19: #616B65;
+
+$base-bg-20: #DFF1FF;
+$base-color-20: #0065B3;
+
+$base-bg-21: #F3EBF0;
+$base-color-21: #A35885;
+
+$base-bg-22: #EFDEDA;
+$base-color-22: #794135;
+
+$base-bg-23: #DBECF0;
+$base-color-23: #07575B;
+
+$base-bg-24: #E7E4E7;
+$base-color-24: #5D535E;
+
+$base-bg-25: #EDF9E6;
+$base-color-25: #0F1B07;
+
+$base-bg-26: #FBE7E3;
+$base-color-26: #CF3721;
+
+$border-width: 0;
+
+ion-avatar {
+    &.first-letter-A{
+    background: $base-bg-1;
+    color: $base-color-1;
+    box-shadow: 0px 0px 1px 3px $base-bg-1 !important;
+    border: $border-width solid $base-color-1 !important;
+  }
+
+  &.first-letter-B{
+    background: $base-bg-2;
+    color: $base-color-2;
+    box-shadow: 0px 0px 1px 3px $base-bg-2 !important;
+    border: $border-width solid $base-color-2 !important;
+  }
+
+  &.first-letter-C{
+    background: $base-bg-3;
+    color: $base-color-3;
+    box-shadow: 0px 0px 1px 3px $base-bg-3 !important;
+    border: $border-width solid $base-color-3 !important;
+  }
+
+  &.first-letter-D{
+    background: $base-bg-4;
+    color: $base-color-4;
+    box-shadow: 0px 0px 1px 3px $base-bg-4 !important;
+    border: $border-width solid $base-color-4 !important;
+  }
+
+  &.first-letter-E{
+    background: $base-bg-5;
+    color: $base-color-5;
+    box-shadow: 0px 0px 1px 3px $base-bg-5 !important;
+    border: $border-width solid $base-color-5 !important;
+  }
+
+  &.first-letter-F{
+    background: $base-bg-6;
+    color: $base-color-6;
+    box-shadow: 0px 0px 1px 3px $base-bg-6 !important;
+    border: $border-width solid $base-color-6 !important;
+  }
+
+  &.first-letter-G{
+    background: $base-bg-7;
+    color: $base-color-7;
+    box-shadow: 0px 0px 1px 3px $base-bg-7 !important;
+    border: $border-width solid $base-color-7 !important;
+  }
+
+  &.first-letter-H{
+    background: $base-bg-8;
+    color: $base-color-8;
+    box-shadow: 0px 0px 1px 3px $base-bg-8 !important;
+    border: $border-width solid $base-color-8 !important;
+  }
+
+  &.first-letter-I{
+    background: $base-bg-9;
+    color: $base-color-9;
+    box-shadow: 0px 0px 1px 3px $base-bg-9 !important;
+    border: $border-width solid $base-color-9 !important;
+  }
+
+  &.first-letter-J{
+    background: $base-bg-10;
+    color: $base-color-10;
+    box-shadow: 0px 0px 1px 3px $base-bg-10 !important;
+    border: $border-width solid $base-color-10 !important;
+  }
+
+  &.first-letter-K{
+    background: $base-bg-11;
+    color: $base-color-11;
+    box-shadow: 0px 0px 1px 3px $base-bg-11 !important;
+    border: $border-width solid $base-color-11 !important;
+  }
+  &.first-letter-L{
+    background: $base-bg-12;
+    color: $base-color-12;
+    box-shadow: 0px 0px 1px 3px $base-bg-12 !important;
+    border: $border-width solid $base-color-12 !important;
+  }
+  &.first-letter-M{
+    background: $base-bg-13;
+    color: $base-color-13;
+    box-shadow: 0px 0px 1px 3px $base-bg-13 !important;
+    border: $border-width solid $base-color-13 !important;
+  }
+  &.first-letter-N{
+    background: $base-bg-14;
+    color: $base-color-14;
+    box-shadow: 0px 0px 1px 3px $base-bg-14 !important;
+    border: $border-width solid $base-color-14 !important;
+  }
+  &.first-letter-O{
+    background: $base-bg-15;
+    color: $base-color-15;
+    box-shadow: 0px 0px 1px 3px $base-bg-15 !important;
+    border: $border-width solid $base-color-15 !important;
+  }
+  &.first-letter-P{
+    background: $base-bg-16;
+    color: $base-color-16;
+    box-shadow: 0px 0px 1px 3px $base-bg-16 !important;
+    border: $border-width solid $base-color-16 !important;
+  }
+  &.first-letter-Q{
+    background: $base-bg-17;
+    color: $base-color-17;
+    box-shadow: 0px 0px 1px 3px $base-bg-17 !important;
+    border: $border-width solid $base-color-17 !important;
+  }
+  &.first-letter-R{
+    background: $base-bg-18;
+    color: $base-color-18;
+    box-shadow: 0px 0px 1px 3px $base-bg-18 !important;
+    border: $border-width solid $base-color-18 !important;
+  }
+  &.first-letter-S{
+    background: $base-bg-19;
+    color: $base-color-19;
+    box-shadow: 0px 0px 1px 3px $base-bg-19 !important;
+    border: $border-width solid $base-color-19 !important;
+  }
+  &.first-letter-T{
+    background: $base-bg-20;
+    color: $base-color-20;
+    box-shadow: 0px 0px 1px 3px $base-bg-20 !important;
+    border: $border-width solid $base-color-20 !important;
+  }
+  &.first-letter-U{
+    background: $base-bg-21;
+    color: $base-color-21;
+    box-shadow: 0px 0px 1px 3px $base-bg-21 !important;
+    border: $border-width solid $base-color-21 !important;
+  }
+  &.first-letter-V{
+    background: $base-bg-22;
+    color: $base-color-22;
+    box-shadow: 0px 0px 1px 3px $base-bg-22 !important;
+    border: $border-width solid $base-color-22 !important;
+  }
+  &.first-letter-W{
+    background: $base-bg-23;
+    color: $base-color-23;
+    box-shadow: 0px 0px 1px 3px $base-bg-23 !important;
+    border: $border-width solid $base-color-23 !important;
+  }
+  &.first-letter-X{
+    background: $base-bg-24;
+    color: $base-color-24;
+    box-shadow: 0px 0px 1px 3px $base-bg-24 !important;
+    border: $border-width solid $base-color-24 !important;
+  }
+  &.first-letter-Y{
+    background: $base-bg-25;
+    color: $base-color-25;
+    box-shadow: 0px 0px 1px 3px $base-bg-25 !important;
+    border: $border-width solid $base-color-25 !important;
+  }
+  &.first-letter-Z{
+    background: $base-bg-26;
+    color: $base-color-26;
+    box-shadow: 0px 0px 1px 3px $base-bg-26 !important;
+    border: $border-width solid $base-color-26 !important;
+  }
+}

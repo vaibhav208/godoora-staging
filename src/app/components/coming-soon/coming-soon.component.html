@@ -1,0 +1,13 @@
+<div class="coming-soon-body" *ngIf="vendorDeatil && vendorDeatil.comingSoon && vendorDeatil.comingSoon.active">
+  <div class="noise">
+    <div class="content">
+      <h1 class="border-top border-bottom"><span>{{ vendorDeatil.comingSoon.heading }}</span></h1>
+      <p>{{ vendorDeatil.comingSoon.subHeading }} </p>
+      <!-- <form>
+        <input type="text" onclick="this.value='';" onfocus="this.select()"
+          onblur="this.value=!this.value?'Email Address':this.value;" value="Email Address" />
+        <input type="button" value="Sign Up" />
+      </form> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+span{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div{
+    ol{
+        text-align: justify;
+        counter-reset: item;
+        h2{
+            font-size: 16px;
+            padding-right: 40px;
+        }
+        p{
+            font-size: 14px;
+            padding-right: 40px;
+        }
+        li:before {
+            content: counters(item, ".") ". ";
+            counter-increment: item ;
+            font-weight: bold;
+        }
+        li{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px 10px 0px;
+            display: block;
+            ol{
+                li{
+                    font-size: 14px;
+                    font-weight: normal;
+                }
+                li:before {
+                    content: counters(item, ".") " ";
+                    counter-increment: item ;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

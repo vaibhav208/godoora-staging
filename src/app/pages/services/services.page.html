@@ -1,0 +1,13 @@
+<div class="grid">
+  <article *ngFor="let service of services">
+    <ion-card (click)="onServiceClick(service)">
+      <div lines="none" class="my-3 image-container">
+        <img [src]="'../../../assets/images/' + appService.getServiceIcon(service)" [ngStyle]="{width: service.size, height: service.size, color:service.color }" />
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-wrap">{{ service.name }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </article>
+</div>
+
